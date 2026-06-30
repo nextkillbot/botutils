@@ -1,0 +1,2632 @@
+<!DOCTYPE html>
+<html lang="en" style="--MainFont: JetBrains Mono;
+                       
+                       --TopGradientColor: #4627F5;
+                       --TopGradientTransparency: 50%;
+                       --TopGradientHeight: 25%;
+                       
+                       --BottomGradientColor: #9827F5;
+                       --BottomGradientTransparency: 50%;
+                       --BottomGradientHeight: 55%;
+                       
+                       --X-Offset: 0px;
+                       --Y-Offset: 0px;
+                       --ScaleProfile: 0px;">
+    <head>
+        <meta charset="utf-8" />
+        
+        <link rel="stylesheet" href="styles/FontResource.css" />
+        <link rel="stylesheet" href="styles/botutils.css" />
+        <link rel="stylesheet" href="styles/_theme_moonlight.css" />
+        <link rel="icon" href="images/icon/adminPanel_v4.ico" />
+        <script src="scripts/milly.js"></script>
+        
+        <title>[Loading...]</title>
+        
+        <style>
+            body {
+                background-color: #000000;
+                color: #ffffff;
+                
+                overflow: clip;
+            } * {
+                transition: 0.075s ease-out;
+                font-family: var(--MainFont);
+            }
+            
+            .GradientGroup {
+                position: absolute;
+                
+                width: 100%;
+                height: 100%;
+                
+                z-index: -2
+            } .TopGradient {
+                background-image: linear-gradient(to bottom, color-mix(in srgb, var(--TopGradientColor) var(--TopGradientTransparency), transparent), transparent);
+                border-top: 3.5px solid var(--TopGradientColor);
+                
+                position: absolute;
+                top: 0%;
+                
+                width: 100%;
+                height: var(--TopGradientHeight);
+            } .BottomGradient {
+                background-image: linear-gradient(to top, color-mix(in srgb, var(--BottomGradientColor) var(--BottomGradientTransparency), transparent), transparent);
+                border-bottom: 3.5px solid var(--BottomGradientColor);
+                
+                position: absolute;
+                bottom: 0%;
+                
+                width: 100%;
+                height: var(--BottomGradientHeight);
+            } .MainMenu {
+                background-color: var(--bg-menu);
+                color: var(--fg-menu);
+                border: var(--bd-menu) solid var(--border-menu);
+                border-radius: var(--br-menu);
+                
+                padding: var(--pad-menu);
+                
+                position: absolute;
+                
+                overflow: clip;
+                
+                width: 85%;
+                height: max-content;
+                
+                align-content: space-between;
+            } .MainHeader {
+                background-color: var(--bg-header-menu);
+                color: var(--fg-header-menu);
+                border: var(--bd-header-menu) solid var(--border-header-menu);
+                border-radius: var(--br-header-menu);
+                border-bottom-left-radius: 0px;
+                border-bottom-right-radius: 0px;
+                
+                padding: var(--pad-header-menu);
+                padding-left: 0.5em;
+                padding-right: 0.5em;
+                
+                width: 100%;
+                height: max-content;
+                
+                justify-content: space-between;
+            } .HeaderButtons {
+                width: max-content;
+                height: max-content;
+            } .HeaderOptions {
+                border-radius: 5px;
+                
+                font-size: 1.1em;
+                
+                text-align: center;
+                
+                padding: 0px;
+                margin: 1px 2px;
+                
+                width: 2.5em;
+                height: max-content;
+            } .HeaderOptions.Minimize {
+                background-color: #50ff50;
+                color: transparent;
+            } .HeaderOptions.Minimize:hover {
+                background-color: #00ff00;
+                color: #000000;
+            } .HeaderOptions.Windowed {
+                background-color: #ffaa50;
+                color: transparent;
+            } .HeaderOptions.Windowed:hover {
+                background-color: #ffaa00;
+                color: #000000;
+            } .HeaderOptions.Close {
+                background-color: #FF5050;
+                color: transparent;
+            } .HeaderOptions.Close:hover {
+                background-color: #ff0000;
+                color: #000000;
+            } .MainBody {
+                background-color: var(--bg-body-menu);
+                color: var(--fg-body-menu);
+                border: var(--bd-body-menu) solid var(--border-body-menu);
+                border-radius: var(--br-body-menu);
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+                
+                padding: 5px;
+                
+                width: 100%;
+                height: 65vh;
+                
+                justify-content: space-between;
+            } .MainLink {
+                color: var(--fg-link);
+                
+                text-decoration: none;
+            } .MainLink:hover {
+                color: var(--fg-link-hov);
+            } .MainLink:active, .MainLink:visited {
+                color: var(--fg-link-act);
+            } .LeftSection, .RightSection {
+                background-color: var(--bg-cont-menu);
+                color: var(--fg-cont-menu);
+                border: var(--bd-cont-menu) solid var(--border-cont-menu);
+                border-radius: var(--br-cont-menu);
+                
+                padding: var(--pad-cont-menu);
+                
+                height: 100%;
+                
+                align-items: flex-start;
+            } .LeftSection {
+                border-top-right-radius: 0px;
+                border-bottom-right-radius: 0px;
+                
+                padding: 4px 6px;
+                
+                width: 35%;
+                
+                align-content: flex-start;
+            } .RightSection {
+                border-top-left-radius: 0px;
+                border-bottom-left-radius: 0px;
+                
+                padding: 4px 8px;
+                
+                width: 65%;
+            } .MenuButton {
+                background-color: var(--bg-btn);
+                color: var(--fg-btn);
+                border-radius: var(--br-btn);
+                
+                padding: var(--pad-btn);
+                padding-left: 1em;
+                
+                margin-top: 2px;
+                margin-bottom: 2px;
+                
+                width: 100%;
+                height: max-content;
+            } .MenuButton:hover {
+                background-color: var(--bg-btn-hov);
+                color: var(--fg-btn-hov);
+            } .MenuButton:active {
+                background-color: var(--bg-btn-act);
+                color: var(--fg-btn-act);
+            }
+            
+            .Section {    
+                overflow-y: scroll;
+                
+                width: 100%;
+                height: 100%;
+                
+                align-content: flex-start;
+            } .UserDisplay {
+                background-color: var(--bg-userdisp-menu);
+                color: var(--fg-userdisp-menu);
+                border: var(--bd-userdisp-menu) solid var(--border-userdisp-menu);
+                border-radius: var(--br-userdisp-menu);
+                
+                padding: 4px 4px;
+                margin-bottom: 1em;
+                
+                height: 25%;
+                
+                flex-direction: row;
+                justify-content: flex-start;
+            } .DisplayWrapper{
+                background-color: #ffffff;
+                border: 2px solid #ffffff;
+                border-radius: 50%;
+                
+                overflow: clip;
+                
+                width: max-content;
+                height: max-content;
+                
+            } .DisplayPicture {
+                border-radius: 50%;
+                
+                object-fit: cover;
+                object-position: var(--X-Offset) var(--Y-Offset);
+                
+                transform: scale(calc(100% + var(--ScaleProfile)));
+                
+                aspect-ratio: 1/1;
+                max-width: 95px;
+            } .DisplayUserInfo {
+                background-color: var(--bg-userdisp_name-menu);
+                color: var(--fg-userdisp_name-menu);
+                border: var(--bd-userdisp_name-menu) solid var(--border-userdisp_name-menu);
+                border-radius: var(--br-userdisp_name-menu);
+                
+                padding: 2px 4px;
+                
+                width: 0%;
+                height: 100%;
+                
+                flex: 1 1 auto;
+                flex-direction: row;
+                justify-content: space-between;
+                align-content: space-between;
+            } .Account_InfoSection {               
+                width: 100%;
+                height: max-content;
+                
+                flex-direction: column;
+                align-items: flex-start;
+            } .Account_EditSection {            
+                width: max-content; 
+                height: max-content;
+                
+                flex: 1 1 auto;
+                flex-direction: row;
+            } .Username {
+                color: #ffffff;
+            } .AccountState {
+                color: #757575;
+                font-size: 0.75em;
+            } .AccountButton {
+                background-color: var(--bg-acc-btn);
+                color: var(--fg-acc-btn);
+                border: var(--bd-acc-btn) solid var(--border-acc-btn);
+                border-radius: var(--br-acc-btn);
+                border-top-right-radius: 0px;
+                border-bottom-right-radius: 0px;
+                
+                text-align: center;
+                
+                padding: 2px 4px;
+                
+                width: 50%;
+            } .AccountButton:active {
+                background-color: var(--bg-acc-act-btn);
+                color: var(--fg-acc-act-btn);
+            } .LogoutButton {
+                background-color: var(--bg-logout-btn);
+                color: var(--fg-logout-btn);
+                border: var(--bd-logout-btn) solid var(--border-logout-btn);
+                border-radius: var(--br-logout-btn);
+                border-top-left-radius: 0px;
+                border-bottom-left-radius: 0px;
+                
+                text-align: center;
+                
+                padding: 2px 4px;
+                width: 50%;
+            } .LogoutButton:active {
+                background-color: var(--bg-logout-act-btn);
+                color: var(--fg-logout-act-btn);
+            } .SectionHeader {
+                border-bottom: var(--bd-sect-header) solid var(--border-sect-header);
+                
+                padding: var(--pad-sect-header);
+                padding-left: 1em;
+                
+                width: 100%;
+                height: max-content;
+                
+                justify-content: flex-start;
+            } .SectionBody {
+                padding: 4px 8px;
+                
+                width: 100%;
+                height: max-content;
+            } .SectionOptions {
+                padding: 2px 4px;
+                padding-left: 0.5em;
+                
+                width: 100%;
+                height: max-content;
+                
+                flex-direction: column;
+                justify-content: flex-start;
+            } .OptionName {
+                padding: 2px 4px;
+                
+                width: 100%;
+                height: max-content;
+            } .ConditionalSection {
+                background-color: var(--bg-opt-info);
+                color: var(--fg-opt-info);
+                border-radius: var(--br-opt-info);
+                
+                padding: 2px 4px;
+                margin-right: 0.25em;
+                
+                width: 100%;
+            } .DetailsButton {
+                background-color: var(--bg-det-btn);
+                color: var(--fg-det-btn);
+                border-radius: var(--br-det-btn);
+                border-top-right-radius: 0px;
+                border-bottom-right-radius: 0px;
+                
+                padding: 4px 8px;
+                padding-left: 1.25em;
+                margin-right: 2.5px;
+                
+                
+                height: max-content;
+                
+                flex: 1 1 auto;
+            } .DetailsButton:active {
+                background-color: var(--bg-det-act-btn);
+                color: var(--fg-det-act-btn);
+            } .DetailsSection {
+                background-color: var(--bg-det-menu);
+                color: var(--fg-det-menu);
+                border-radius: var(--br-det-menu);
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+                
+                padding: 4px 8px;
+                
+                overflow: clip;
+                
+                width: 100%;
+                height: max-content;
+                
+                flex-direction: column;
+            } .OptionButton {                
+                border-radius: var(--br-btn-toggle);
+                border-top-left-radius: 0px;
+                border-bottom-left-radius: 0px;
+                
+                text-align: center;
+                
+                padding: 4px 8px;
+                margin-left: 2.5px;
+                
+                width: 7.5em;
+            } .OptionButton.Enable {
+                background-color: var(--bg-btn-enable);
+                color: var(--fg-btn-enable);
+            } .OptionButton.Enable:active {
+                background-color: var(--bg-btn-act-enable);
+                color: var(--fg-btn-act-enable);
+            } .OptionButton.Disable {
+                background-color: var(--bg-btn-disable);
+                color: var(--fg-btn-disable);
+            } .OptionButton.Disable:active {
+                background-color: var(--bg-btn-act-disable);
+                color: var(--fg-btn-act-disable);
+            }  .OptionContains {
+                background-color: var(--bg-opt-cont);
+                color: var(--fg-opt-cont);
+                border: var(--bd-opt-cont) solid var(--border-opt-cont);
+                border-radius: var(--br-opt-cont);
+                
+                padding: 4px 8px;
+                
+                width: 100%;
+                height: max-content;
+                
+                align-content: space-between;
+            } .OptionContains_Header {
+                background-color: var(--bg-opt-cont_header);
+                color: var(--fg-opt-cont_header);
+                border: var(--bd-opt-cont_header) solid var(--border-opt-cont_header);
+                border-radius: var(--br-opt-cont_header);
+                border-bottom-left-radius: 0px;
+                border-bottom-right-radius: 0px;
+                
+                padding: 2px 4px;
+                padding-left: 1em;
+                
+                width: 100%;
+                height: max-content;
+                
+                justify-content: flex-start;
+            } .OptionContains_Body {
+                background-color: var(--bg-opt-cont_body);
+                color: var(--fg-opt-cont_body);
+                border: var(--bd-opt-cont_body) solid var(--border-opt-cont_body);
+                border-radius: var(--br-opt-cont_body);
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+                
+                padding: 4px 8px;
+                
+                width: 100%;
+                height: max-content;
+                
+                justify-content: flex-start;
+                align-items: flex-start;
+            } .ModifierButton {
+                background-color: var(--bg-mod-btn);
+                color: var(--fg-mod-btn);
+                border-radius: var(--br-mod-btn);
+                
+                padding: 2px 4px;
+                padding-left: 1em;
+            } .ModifierButton:active {
+                background-color: var(--bg-mod-act-btn);
+                color: var(--fg-mod-act-btn);
+            } .ModifierAttributes {
+                background-color: var(--bg-mod-menu);
+                color: var(--fg-mod-menu);
+                border-radius: var(--br-mod-menu);
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+                
+                overflow: clip;
+                
+                padding: 4px 8px;
+                
+                width: 100%;
+                height: max-content;
+                
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+            } .ModifierInput {
+                background-image: none;
+                background-color: var(--bg-inp-mod);
+                color: var(--fg-inp-mod);
+                border-bottom: var(--bd-inp-mod) solid var(--borderbottom-inp-mod);
+            } .ModifierInput[type=number]::-webkit-inner-spin-button, .ModifierInput[type=number]::-webkit-outer-spin-button {
+               display: none;
+            } .ModifierInput:focus {
+                background-image: var(--bg-inp-focus-mod);
+                background-color: none;
+                color: var(--fg-inp-focus-mod);
+                border-bottom: var(--bd-inp-mod) solid var(--borderbottom-inp-focus-mod);
+            } .ModifierSelection, .ModifierSelection::picker(select) {
+                appearance: base-select;
+                
+                background-color: var(--bg-mod-sel);
+                color: var(--fg-mod-sel);
+                border: var(--bd-mod-sel) solid var(--border-mod-sel);
+                border-radius: var(--br-mod-sel);
+                
+                width: 5.5em;
+            } .ModifierSelection:active {
+                background-color: var(--bg-mod-act-sel);
+                color: var(--fg-mod-act-sel);
+            } .ModifierOption {                
+                background-color: var(--bg-mod-opt);
+                color: var(--fg-mod-opt);
+            } .ModifierOption:active {                
+                background-color: var(--bg-mod-act-opt);
+                color: var(--fg-mod-act-opt);
+            } .ValueButton {
+                background-color: var(--bg-val-btn);
+                color: var(--fg-val-btn);
+                border-radius: var(--br-val-btn);
+                
+                width: 100%;
+                height: max-content;
+            } .ValueButton:active {
+                background-color: var(--bg-val-act-btn);
+                color: var(--fg-val-act-btn);
+            } .AttributeName {
+                background-color: var(--bg-atr-submenu);
+                color: var(--fg-atr-submenu);
+                border-radius: var(--br-atr-submenu);
+                
+                text-align: start;
+                
+                padding: 2px 4px;
+                padding-left: 1em;
+                margin-top: 2px;
+                margin-bottom: 2px;
+                
+                justify-content: space-between;
+            } .AttributeToggle {
+                border-radius: var(--br-atr-toggle);
+                
+                text-align: center;
+                padding: 2px 4px;
+                
+                width: 7.5em;
+                height: max-content;
+            } .AttributeToggle.Allow {
+                background-color: var(--bg-atr-allow-toggle);
+                color: var(--fg-atr-allow-toggle)
+            } .AttributeToggle.Allow:active {
+                background-color: var(--bg-atr-allow-act-toggle);
+                color: var(--fg-atr-allow-act-toggle)
+            } .AttributeToggle.Deny {
+                background-color: var(--bg-atr-deny-toggle);
+                color: var(--fg-atr-deny-toggle)
+            } .AttributeToggle.Deny:active {
+                background-color: var(--bg-atr-deny-act-toggle);
+                color: var(--fg-atr-deny-act-toggle)
+            } .DropdownContains {
+                margin-top: 2px;
+                margin-bottom: 2px;
+                
+                width: 100%;
+                height: max-content;
+                
+                flex-direction: column;
+            } .DropdownMenu {
+                background-color: var(--bg-dropdown-menu);
+                color: var(--fg-dropdown-menu);
+                border: var(--bd-dropdown-menu) solid var(--border-dropdown-menu);
+                border-radius: var(--br-dropdown-menu);
+                
+                padding: 2px 4px;
+                
+                width: 100%;
+                height: max-content;
+                
+                justify-content: flex-start;
+            } .DropdownButton {
+                background-color: var(--bg-dropdown-btn);
+                color: var(--fg-dropdown-btn);
+                border-radius: var(--br-dropdown-btn);
+                
+                padding: 4px 8px;
+                padding-left: 1em;
+                
+                flex: 1 1 auto;
+            } .DropdownButton:active {
+                background-color: var(--bg-dropdown-act-btn);
+                color: var(--fg-dropdown-act-btn);
+            } .DropdownContent {
+                background-color: var(--bg-dropdown-cont);
+                color: var(--fg-dropdown-cont);
+                border-radius: var(--br-dropdown-cont);
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+                
+                overflow: clip;
+                
+                padding: 2px 4px;
+                
+                width: 100%;
+                height: max-content;
+                
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+            } .DropdownInput {
+                background-image: none;
+                background-color: transparent;
+                color: var(--fg-dropdown-inp);
+                border-bottom: var(--bd-dropdown-inp) solid var(--borderbottom-dropdown-inp);
+            } .DropdownInput:focus {
+                background-image: var(--bg-dropdown-inp);
+                background-color: none;
+                color: var(--fg-dropdown-inp);
+                border-bottom: var(--bd-dropdown-inp) solid var(--borderbottom-dropdown-inp);
+            } .DropdownInput[type=number]::-webkit-inner-spin-button, .ModifierInput[type=number]::-webkit-outer-spin-button {
+               display: none;
+            } .DropdownInput[type=color] {
+                background-color: var(--bg-dropdown-col-inp);
+                border: var(--bd-dropdown-col-inp) solid var(--border-dropdown-col-inp);
+                border-radius: var(--br-dropdown-col-inp);
+                
+                padding: 2px 4px;
+                
+                width: 5em;
+            } .DropdownInput[type=color]:active {
+                background-color: var(--bg-dropdown-col-act-inp);
+            } .DropdownInput_File::file-selector-button {
+                background-color: var(--bg-file-btn);
+                color: var(--fg-file-btn);
+                border: var(--bd-file-btn) solid var(--border-file-btn);
+                border-radius: var(--br-file-btn);
+                
+                font-family: var(--MainFont);
+                
+                text-align: start;
+                
+                cursor: pointer;
+                
+                width: 10em;
+            } .DropdownInput_File::file-selector-button:active {
+                background-color: var(--bg-file-act-btn);
+                color: var(--fg-file-act-btn);
+            } .Dropdown_DetailsButton {
+                background-color: var(--bg-acc_sav-btn);
+                color: var(--fg-acc_sav-btn);
+                border: var(--bd-acc_sav-btn) solid var(--border-acc_sav-btn);
+                border-radius: var(--br-acc_sav-btn);
+                
+                padding: 4px 8px;
+                
+                width: 100%;
+                height: max-content;
+            } .Dropdown_DetailsButton:active {
+                background-color: var(--bg-acc_sav-act-btn);
+                color: var(--fg-acc_sav-act-btn);
+            } .DropdownAttributes {
+                background-color: var(--bg-dropdown-attr-mod);
+                color: var(--fg-dropdown-attr-mod);
+                border-radius: var(--br-dropdown-attr-mod);
+                
+                padding: 4px 8px;
+                padding-left: 1em;
+                
+                width: 100%;
+                height: max-content;
+                
+                justify-content: space-between;
+            } .DropdownToggle {
+                border-radius: var(--br-dropdown-attr-btn);
+                
+                text-align: center;
+                
+                padding: 2px 4px;
+                
+                width: 5em;
+                height: max-content;
+            } .DropdownToggle.True {  
+                background-color: var(--bg-dropdown-attr-true-btn);
+                color: var(--fg-dropdown-attr-true-btn);
+            } .DropdownToggle.True:active {  
+                background-color: var(--bg-dropdown-attr-true-act-btn);
+                color: var(--fg-dropdown-attr-true-act-btn);
+            } .DropdownToggle.False {  
+                background-color: var(--bg-dropdown-attr-false-btn);
+                color: var(--fg-dropdown-attr-false-btn);
+            } .DropdownToggle.False:active {  
+                background-color: var(--bg-dropdown-attr-false-act-btn);
+                color: var(--fg-dropdown-attr-false-act-btn);
+            } .SocialLinks {
+                padding-left: 0.5em;
+                
+                justify-content: flex-start;
+                align-items: center;
+            }
+            
+            
+            .LoginMenu {
+                background-color: var(--bg-login-menu);
+                color: var(--fg-login-menu);
+                border: var(--bd-login-menu) solid var(--border-login-menu);
+                border-radius: var(--br-login-menu);
+                
+                padding: 4px;
+                
+                width: 55%;
+                height: max-content;
+            } .LoginHeader {
+                background-color: var(--bg-login-header);
+                color: var(--fg-login-header);
+                border: var(--bd-login-header) solid var(--border-login-header);
+                border-radius: var(--br-login-header);
+                border-bottom-left-radius: 0px;
+                border-bottom-right-radius: 0px;
+                
+                padding: 4px 8px;
+                padding-left: 1.5em;
+                
+                width: 100%;
+                height: max-content;
+                
+                justify-content: space-between;
+            } .LoginBody {
+                background-color: var(--bg-login-body);
+                color: var(--fg-login-body);
+                border: var(--bd-login-body) solid var(--border-login-body);
+                border-radius: var(--br-login-body);
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+                
+                padding: 4px 8px;
+                
+                width: 100%;
+                height: 45vh;
+                
+                align-content: space-between;
+            } .LoginIntro {      
+                width: 100%;
+                height: max-content;
+                
+                flex-direction: column;
+                align-items: flex-start;
+            } .LoginCredentials {
+                background-color: var(--bg-login-credentials);
+                color: var(--fg-login-credentials);
+                border: var(--bd-login-credentials) solid var(--border-login-credentials);
+                border-radius: var(--br-login-credentials);
+                
+                padding: 4px 8px;
+                
+                width: 100%;
+                height: 75%;
+                
+                flex: 1 1 auto;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+            } .LoginInput {
+                background-image: none;
+                color: var(--fg-login-inp);
+                border-bottom: var(--bd-login-inp) solid var(--borderbottom-login-inp);
+            } .LoginInput:focus {
+                background-color: none;
+                background-image: var(--bg-login-inp);
+                color: var(--fg-login-inp);
+                border-bottom: var(--bd-login-inp) solid var(--borderbottom-login-inp);
+            } .LoginButton {
+                background-color: var(--bg-login-btn);
+                color: var(--fg-login-btn);
+                border: var(--bd-login-btn) solid var(--border-login-btn);
+                border-radius: var(--br-login-btn);
+                
+                padding: 4px 8px;
+                
+                width: 100%;
+                height: max-content;
+            } .LoginButton:active {
+                background-color: var(--bg-login-act-btn);
+                color: var(--fg-login-act-btn);
+            } .PasswordShow { 
+                user-select: none;
+                cursor: pointer;
+            } .PasswordShow:hover {
+                text-decoration: underline;
+            }
+            
+            .PopupContains {
+                background-color: #000000a5;
+                
+                position: absolute;
+            } .CustomPopup {
+                background-color: var(--bg-popup);
+                color: var(--fg-popup);
+                border: var(--bd-popup) solid var(--border-popup);
+                border-radius: var(--br-popup);
+                
+                padding: 4px 8px;
+                
+                width: 55.5%;
+                height: max-content;
+            } .PopupHeader {
+                background-color: var(--bg-popup-header);
+                color: var(--fg-popup-header);
+                border-bottom: var(--borderbottom-popup-header) solid var(--bd-popup-header);
+                border-radius: var(--br-popup-header);
+                border-bottom-left-radius: 0px;
+                border-bottom-right-radius: 0px;
+                
+                padding: 2px 4px;
+                padding-left: 1em;
+                
+                width: 100%;
+                height: max-content;
+                
+                justify-content: flex-start;
+            } .PopupBody {
+                background-color: var(--bg-popup-body);
+                color: var(--fg-popup-body);
+                border-top: var(--border-popup-body) solid var(--bd-popup-body);
+                border-bottom: var(--border-popup-body) solid var(--bd-popup-body);
+                
+                font-size: 1.5em;
+                
+                padding: 2px 4px;
+                padding-left: 1em;
+                
+                width: 100%;
+                height: 35vh;
+            } .PopupOptions {
+                background-color: var(--bg-popup-opt);
+                color: var(--fg-popup-opt);
+                border-top: var(--bd-popup-opt) solid var(--bordertop-popup-opt);
+                border-radius: var(--br-popup-opt);
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+                
+                padding: 2px 4px;
+                
+                width: 100%;
+                height: max-content;
+            } .PopupButtons {
+                background-color: var(--bg-popup-btn);
+                color: var(--fg-popup-btn);
+                border: var(--bd-popup-btn) solid var(--border-popup-btn);
+                border-radius: var(--br-popup-btn);
+                
+                text-align: center;
+                
+                padding: 4px 8px;
+                
+                width: 45%;
+                height: max-content;
+            } .PopupButtons.Cancel {
+                border-top-right-radius: 0px;
+                border-bottom-right-radius: 0px;
+            } .PopupButtons.Cancel:active {
+                background-color: var(--bg-popup-cancel);
+                color: var(--fg-popup-cancel);
+                border: var(--bd-popup-cancel) solid var(--border-popup-cancel);
+            } .PopupButtons.Okay {
+                border-top-left-radius: 0px;
+                border-bottom-left-radius: 0px;
+            } .PopupButtons.Okay:active {
+                background-color: var(--bg-popup-okay);
+                color: var(--fg-popup-okay);
+                border: var(--bd-popup-okay) solid var(--border-popup-okay);
+            }
+            
+            .CreditsSection {
+                position: absolute;
+            } .MainCenter {
+                border: 10px solid #ffffff;
+                border-radius: 50%;
+                
+                aspect-ratio: 1/1;
+                
+                width: 25%;
+                height: max-content
+            } .Rings {
+                position: absolute;
+                
+                aspect-ratio: 1/1;
+            } .BackgroundWrapper {
+                position: absolute;
+                
+                align-content: space-between;
+                
+                z-index: -1;
+            } .TopGradient_Credits {
+                background-image: linear-gradient(to bottom, #000055, transparent);
+                
+                width: 100%;
+                height: 65%;
+            } .BottomGradient_Credits {
+                background-image: linear-gradient(to top, #3c007d, transparent);
+                
+                width: 100%;
+                height: 65%;
+            } .CreditsIcon {
+                position: absolute;
+                
+                width: 150px;
+            } @keyframes Credits_Pop1 {
+                0% {
+                    transform: none;
+                } 100% {
+                    transform: scale(150%) rotate(45deg);
+                }
+            } @keyframes Credits_Pop2 {
+                0% {
+                    transform: scale(150%) rotate(45deg);
+                } 100% {
+                    transform: none;
+                }
+            } @keyframes Shake {
+                0% {
+                    transform: translateX(25px) translateY(-15px) scale(100%);
+                } 25% {
+                    transform: translateX(-25px) translateY(15px) scale(125%);
+                } 50% {
+                    transform: translateX(45px) translateY(35px) scale(150%);
+                } 75% {
+                    transform: translateX(-45px) translateY(-35px) scale(125%);
+                } 100% {
+                    transform: translateX(0px) translateY(0px) scale(100%);
+                }
+            } .CreditsSection {
+                width: 100%;
+                height: max-content;
+                
+                justify-content: center;
+            } .CreditsMain {
+                background-color: #00000050;
+                color: #ffffff;
+                border: 10px solid #ffffff;
+                border-radius: 50%;
+                
+                box-shadow: inset 0 0 1.25em, 0 0 0.5em;
+                
+                width: 27.5%;
+                height: max-content;
+                
+                aspect-ratio: 1/1;
+                
+                flex-direction: column;
+            } .CreditsTitle {
+                font-size: 3.5em;
+                
+                text-shadow: 0 0 0.15em;
+                
+                user-select: none;
+            } .CreditsSide {
+                background-color: #00000050;
+                color: #ffffff;
+                border: 2.5px solid #ffffff;
+                border-radius: 50px;
+                
+                box-shadow: inset 0 0 0.5em, 0 0 0.25em;
+                
+                padding: 8px 8px;
+                
+                overflow: clip;
+                
+                width: 27.5%;
+                height: max-content;
+                
+                justify-content: center;
+                align-items: flex-start
+            } .CreditsSide.Left {
+                border-top-right-radius: 0px;
+                border-bottom-right-radius: 0px;
+                
+                margin-right: 0.5em;
+            } .CreditsSide.Right {
+                border-top-left-radius: 0px;
+                border-bottom-left-radius: 0px;
+                
+                margin-left: 0.5em;
+            } .CreditsHeader {
+                background-color: #ffffff50;
+                border-bottom: 2.5px solid #ffffff;
+                
+                padding: 4px 8px;
+                
+                user-select: none;
+                
+                width: 100%;
+                height: max-content;
+            } .CreditsHeader.Left {
+                border-top-left-radius: 50px;
+                
+                padding-left: 1.5em;
+                justify-content: flex-start;
+            } .CreditsHeader.Right {
+                border-top-right-radius: 50px;
+                
+                padding-right: 1.5em;
+                justify-content: flex-end;
+            } .CreditsExit {
+                background-color: #ffffff25;
+                color: #ffffff;
+                border: 2px solid #ffffff;
+                border-radius: 10px;
+                
+                text-align: center;
+                
+                padding: 4px 8px;
+                
+                width: 75%;
+                height: max-content;
+            } .CreditsExit:active {
+                background-color: #ffffff50;
+                color: #ffffff;
+            } .CreditsBody {
+                background-color: #ffffff25;
+                
+                padding: 8px 8px;
+                
+                overflow-y: scroll;
+                
+                width: 100%;
+                height: 15em;
+                
+                flex-direction: row;
+                justify-content: flex-start;
+                align-content: flex-start;
+            } .CreditsBody.Left {
+                background-image: radial-gradient(circle at top left, #ffffff75, #ffffff25, transparent, transparent);
+                border-bottom-left-radius: 50px;
+            } .CreditsBody.Right {
+                background-image: radial-gradient(circle at top right, #ffffff75, #ffffff25, transparent, transparent);
+                border-bottom-right-radius: 50px;
+            } .CreditsMembers {
+                background-color: #ffffff25;
+                color: #ffffff;
+                
+                padding: 4px 8px;
+                padding-left: 1em;
+                
+                font-size: 1.15em;
+                
+                width: 100%;
+                height: max-content;
+                
+                flex-direction: row;
+                justify-content: flex-start;
+            } .CreditsImage_Contributors {
+                background-color: #ffffff;
+                border: 1.5px solid #ffffff;
+                border-radius: 50%;
+                
+                aspect-ratio: 1/1;
+                
+                width: 45px;
+                height: max-content;
+            } .CreditsName_Contributors {
+                color: #ffffff;
+                
+                text-decoration: none;
+                
+                font-size: 1.25em;
+            } .CreditsName_Contributors:hover {
+                text-decoration: underline;
+            } .CreditsName_Contributors:active {
+                color: #aa00ff;
+                
+                text-decoration: underline;
+            } .AboutPanel {         
+                width: 100%;
+                height: max-content;
+
+                flex-direction: row;
+                justify-content: flex-start;
+            } .PanelDetails {                      
+                margin-left: 1em;
+                
+                width: max-content;
+                height: max-content;
+                
+                flex: 1 1;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+            }
+        </style>
+    </head>
+    <body onload="Load()" class="B-UTILS_Centered">
+        
+        <div class="B-UTILS_Centered GradientGroup">
+            <div class="TopGradient" style="display: none"></div>
+            <div class="BottomGradient" style="display: none"></div>
+        </div>
+        
+        <div class="B-UTILS_Centered LoginMenu" style="display: flex;">
+            <div class="B-UTILS_Centered LoginHeader">
+                <h3 style="margin: 0px;">Login menu</h3>
+            </div>
+            <div class="B-UTILS_Centered LoginBody">
+                <span class="B-UTILS_Centered LoginIntro">
+                    <h2 style="margin: 0px;">Welcome back!</h2>
+                    <span>Please enter your information below:</span>
+                </span>
+                
+                <div class="B-UTILS_HorizontalBar"></div>
+                
+                <div class="B-UTILS_Centered LoginCredentials">
+                    <span>
+                        Username: <input type="text" class="B-UTILS_Input LoginInput LoginUsername" />
+                    </span>
+                    <span>
+                        Password <span class="PasswordShow" onclick="TogglePassword('PasswordShow', 'LoginPassword', 'show')">(show)</span>: <input type="password" class="B-UTILS_Input LoginInput LoginPassword" />
+                    </span><br>
+                    <button class="B-UTILS_Button LoginButton" onclick="Authenticate()">Login</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="B-UTILS_Centered CreditsMenu" style="display: none">
+            <div class="B-UTILS_Centered BackgroundWrapper">
+                <div class="TopGradient_Credits"></div>
+                <div class="BottomGradient_Credits"></div>
+            </div>
+            <div class="B-UTILS_Centered">
+                <img class="B-UTILS_Image CreditsIcon" src="images/icon/cred_icon.png" style="display: none">
+                
+                <div class="B-UTILS_Centered CreditsSection" style="display: none">
+                    
+                    <div class="B-UTILS_Centered CreditsSide Left CreditsLeft" style="display: none">
+                        <header class="B-UTILS_Centered CreditsHeader Left">
+                            <h3 style="margin: 0px;">Contributors</h3>
+                        </header>
+                        <div class="B-UTILS_Centered CreditsBody Left">
+                            
+                            <div class="B-UTILS_Centered CreditsMembers">
+                                <img class="B-UTILS_Image CreditsImage_Contributors" style="margin-right: 0.5em;" src="https://yt3.googleusercontent.com/773oIG84ndtvAyrr15oX950CCMVMIa3jnpsP2fI9BWqkhyL3GsqbNLDxT3TlOx7if3jL3dMe5bs=s160-c-k-c0x00ffffff-no-rj" />
+                                <a href="https://www.youtube.com/@DaEmiyaa928" target="_blank" class="CreditsName_Contributors">Emiyaa</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="B-UTILS_Centered CreditsMain">
+                        <span class="CreditsTitle">Credits</span><br>
+                        <button class="B-UTILS_Button CreditsExit" onclick="ExitCredits()">Exit</button>
+                    </div>
+                    
+                    <div class="B-UTILS_Centered CreditsSide Right CreditsRight" style="display: none">
+                        <header class="B-UTILS_Centered CreditsHeader Right">
+                            <h3 style="margin: 0px;">Helpers</h3>
+                        </header>
+                        <div class="B-UTILS_Centered CreditsBody Right">
+                            
+                            
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="B-UTILS_Centered MainMenu" style="display: none;">
+            <header class="B-UTILS_Centered MainHeader">
+                <h2 style="margin: 0px">&gt; Admin Panel</h2>
+                <div class="B-UTILS_Centered HeaderButtons">
+                    <button class="B-UTILS_Button HeaderOptions Minimize">-</button>
+                    <button class="B-UTILS_Button HeaderOptions Windowed">□</button>
+                    <button class="B-UTILS_Button HeaderOptions Close">x</button>
+                </div>
+            </header>
+            
+            <div class="B-UTILS_Centered MainBody">
+                <div class="B-UTILS_Centered LeftSection">
+                    <div class="B-UTILS_Centered UserDisplay">
+                        <div class="B-UTILS_Centered DisplayWrapper">
+                            <img class="DisplayPicture" src="profilepicture/template.jpg" title="You're so beautiful, keep that up!">
+                        </div>
+                        <div class="B-UTILS_VerticalBar"></div>
+                        <div class="B-UTILS_Centered DisplayUserInfo">
+                            <div class="B-UTILS_Centered Account_InfoSection">
+                                <span class="Username">Username here</span>
+                                <span class="AccountState">Verified?</span>
+                            </div>
+                            <div class="B-UTILS_Centered Account_EditSection">
+                                <button class="B-UTILS_Button AccountButton" onclick="OverlayMenu('Settings')">Settings</button>
+                                <button class="B-UTILS_Button LogoutButton" onclick="LogoutConfirmation()">Logout</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="B-UTILS_Button MenuButton" onclick="OverlayMenu('Character')">Character</button>
+                    <button class="B-UTILS_Button MenuButton" onclick="OverlayMenu('Currency')">Currency</button>
+                    <button class="B-UTILS_Button MenuButton" onclick="OverlayMenu('World')">Map / World</button>
+                    <div class="B-UTILS_HorizontalBar"></div>
+                    <button class="B-UTILS_Button MenuButton" onclick="OverlayMenu('About')">About</button>
+                    <button class="B-UTILS_Button MenuButton" onclick="LaunchCredits()">Credits</button>
+                </div>
+                <div class="B-UTILS_Centered RightSection">
+                    
+                    <div class="B-UTILS_Centered Section Settings" style="display: none">
+                        <header class="B-UTILS_Centered SectionHeader">
+                            <h3 style="margin: 0px;">Settings</h3>
+                        </header>
+                        <div class="SectionBody">
+                            <div class="B-UTILS_Centered SectionOptions">
+                                
+                                <div class="B-UTILS_Centered DropdownContains">
+                                    <div class="B-UTILS_Centered DropdownMenu">
+                                        <button class="B-UTILS_Button DropdownButton ProfileDropdown" onclick="Dropdown('Profile', 'open', 'Profile')">+ | Profile</button>
+                                        <div class="B-UTILS_Centered DropdownContent ProfileDropContent" style="display: none">
+                                            <span>
+                                                Select your profile picture (Experimental): <input class="B-UTILS_Input DropdownInput_File NewProfilePicture" type="file" accept="image/jpeg, image/png, image/jpg">
+                                            </span>
+                                            <span>
+                                                Profile X-offset (%, px, em): <input class="B-UTILS_Input DropdownInput ProfileXOffset" type="text" value="0px">
+                                            </span>
+                                            <span>
+                                                Profile Y-offset (%, px, em): <input class="B-UTILS_Input DropdownInput ProfileYOffset" type="text" value="0px">
+                                            </span>
+                                            <span>
+                                               Zoom (%): <input class="B-UTILS_Input DropdownInput ProfileZoom" type="number" value="0">
+                                            </span>
+                                            <br>
+                                            <span>
+                                                Change username: <input class="B-UTILS_Input DropdownInput NewUsername" type="text">
+                                            </span>
+                                            <br>
+                                            <button class="B-UTILS_Button Dropdown_DetailsButton" onclick="ProfilePicture()">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="B-UTILS_Centered DropdownContains">
+                                    <div class="B-UTILS_Centered DropdownMenu">
+                                        <button class="B-UTILS_Button DropdownButton StyleDropdown" onclick="Dropdown('Style', 'open', 'Themes & Styling')">+ | Themes & Styling</button>
+                                        <div class="B-UTILS_Centered DropdownContent StyleDropContent" style="display: none">
+                                            
+                                            <div class="B-UTILS_Centered DropdownContains">
+                                                <div class="B-UTILS_Centered DropdownMenu">
+                                                    <button class="B-UTILS_Button DropdownButton TopGradientDropdown" onclick="Dropdown('TopGradient', 'open', 'Top gradient')">+ | Top gradient</button>
+                                                    <div class="B-UTILS_Centered DropdownContent TopGradientDropContent" style="display: none">
+                                                        <span>
+                                                            Main color: <input class="B-UTILS_Input DropdownInput MainTopGradientColor" type="color" value="#4627F5">
+                                                        </span>
+                                                        <span>
+                                                            Transparency (0 to 100): <input class="B-UTILS_Input DropdownInput MainTopGradientTransparency" type="number" value="50">
+                                                        </span>
+                                                        <span>
+                                                            Height (0 to 100): <input class="B-UTILS_Input DropdownInput MainTopGradientHeight" type="number" value="25">
+                                                        </span>
+                                                        <br>
+                                                        <div class="B-UTILS_Centered DropdownAttributes">
+                                                            <span>Enabled:</span>
+                                                            <button class="B-UTILS_Button DropdownToggle True TopGradientToggle" onclick="GradientEnabler('TopGradient', 'false')">True</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="B-UTILS_Centered DropdownContains">
+                                                <div class="B-UTILS_Centered DropdownMenu">
+                                                    <button class="B-UTILS_Button DropdownButton BottomGradientDropdown" onclick="Dropdown('BottomGradient', 'open', 'Bottom gradient')">+ | Bottom gradient</button>
+                                                    <div class="B-UTILS_Centered DropdownContent BottomGradientDropContent" style="display: none">
+                                                        <span>
+                                                            Main color: <input class="B-UTILS_Input DropdownInput MainBottomGradientColor" type="color" value="#9827F5">
+                                                        </span>
+                                                        <span>
+                                                            Transparency (0 to 100): <input class="B-UTILS_Input DropdownInput MainBottomGradientTransparency" type="number" value="50">
+                                                        </span>
+                                                        <span>
+                                                            Height (0 to 100): <input class="B-UTILS_Input DropdownInput MainBottomGradientHeight" type="number" value="55">
+                                                        </span>
+                                                        <br>
+                                                        <div class="B-UTILS_Centered DropdownAttributes">
+                                                            <span>Enabled:</span>
+                                                            <button class="B-UTILS_Button DropdownToggle True BottomGradientToggle" onclick="GradientEnabler('BottomGradient', 'false')">True</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="B-UTILS_Centered DropdownContains">
+                                                <div class="B-UTILS_Centered DropdownMenu">
+                                                    <button class="B-UTILS_Button DropdownButton AnimationDropdown" onclick="Dropdown('Animation', 'open', 'Animation')">+ | Animation</button>
+                                                    <div class="B-UTILS_Centered DropdownContent AnimationDropContent" style="display: none">
+                                                        <span>
+                                                            Duration (s): <input class="B-UTILS_Input DropdownInput AnimationDuration" type="number" value="0.35">
+                                                        </span>
+                                                        <span>
+                                                            Easing (cubic-bezier): <input class="B-UTILS_Input DropdownInput AnimationEasing" type="text" value="cubic-bezier(0, 1, 0.5, 1)">
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="B-UTILS_Centered DropdownContains">
+                                                <div class="B-UTILS_Centered DropdownMenu">
+                                                    <button class="B-UTILS_Button DropdownButton FontDropdown" onclick="Dropdown('Font', 'open', 'Fonts')">+ | Fonts</button>
+                                                    <div class="B-UTILS_Centered DropdownContent FontDropContent" style="display: none">
+                                                        <span>
+                                                            Font: <input class="B-UTILS_Input DropdownInput FontSelection" type="text" value="JetBrains Mono">
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <br>
+                                            <button class="B-UTILS_Button Dropdown_DetailsButton" onclick="StyleOverride()">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="B-UTILS_Centered DropdownContains">
+                                    <div class="B-UTILS_Centered DropdownMenu">
+                                        <button class="B-UTILS_Button DropdownButton MiscDropdown" onclick="Dropdown('Misc', 'open', 'Miscellaneous settings')">+ | Miscellaneous settings</button>
+                                        <div class="B-UTILS_Centered DropdownContent MiscDropContent" style="display: none">
+                                            
+                                            <div class="B-UTILS_Centered DropdownContains">
+                                                <div class="B-UTILS_Centered DropdownMenu">
+                                                    <button class="B-UTILS_Button DropdownButton GlowDropdown" onclick="Dropdown('Glow', 'open', 'Glowing texts')">+ | Glowing texts</button>
+                                                    <div class="B-UTILS_Centered DropdownContent GlowDropContent" style="display: none">
+                                                        <span>
+                                                            Style: <input class="B-UTILS_Input DropdownInput GlowStyle" type="text" value="0 0 0.5em">
+                                                        </span>
+                                                        <span>
+                                                            Note: This argument (Style) is derived from the CSS attribute <code>text-shadow</code>
+                                                        </span>
+                                                        <br>
+                                                        <div class="B-UTILS_Centered DropdownAttributes">
+                                                            <span>Enabled:</span>
+                                                            <button class="B-UTILS_Button DropdownToggle False GlowToggle" onclick="GlowEnabler('Glow', 'true')">False</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <br>
+                                            <button class="B-UTILS_Button Dropdown_DetailsButton" onclick="MiscOverride()">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="B-UTILS_Centered Section Character" style="display: flex">
+                        <header class="B-UTILS_Centered SectionHeader">
+                            <h3 style="margin: 0px;">Character section</h3>
+                        </header>
+                        <div class="SectionBody">
+                            <div class="B-UTILS_Centered SectionOptions">
+                                
+                                <div class="OptionName">
+                                    <div class="B-UTILS_Centered ConditionalSection ImmortalConditional" style="border-bottom-left-radius: var(--br-opt-info); border-bottom-right-radius: var(--br-opt-info)">
+                                        <button class="B-UTILS_Button DetailsButton Immortal" onclick="Details('Immortal', 'open', 'Immortality')">
+                                            + | Immortality
+                                        </button>
+                                        <button class="B-UTILS_Button ImmortalToggle OptionButton Disable" onclick='Toggle("ImmortalToggle", "on")'>
+                                            Off
+                                        </button>
+                                    </div>
+                                    <div class="DetailsSection ImmortalSection" style="display: none">
+                                        <span>Info: This option makes you so that you can live forever</span>
+                                        <span>Note: You might wanna turn this off after some time, unless you don't care about your feelings.<br> Which is not good...</span>
+                                        <br>
+                                        <div class="B-UTILS_Centered AttributeName">
+                                            <span>Invincibility to any attacks</span>
+                                            <button class="B-UTILS_Button AttributeToggle Deny ImmortalAttr_Invincible" onclick="AttributeModifiers('ImmortalAttr_Invincible', 'allow')">Deny</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="OptionName">
+                                    <div class="B-UTILS_Centered ConditionalSection NoclipConditional" style="border-bottom-left-radius: var(--br-opt-info); border-bottom-right-radius: var(--br-opt-info)">
+                                        <button class="B-UTILS_Button DetailsButton Noclip" onclick="Details('Noclip', 'open', 'Noclip')">
+                                            + | Noclip
+                                        </button>
+                                        <button class="B-UTILS_Button NoclipToggle OptionButton Disable" onclick='Toggle("NoclipToggle", "on")'>
+                                            Off
+                                        </button>
+                                    </div>
+                                    <div class="DetailsSection NoclipSection" style="display: none">
+                                        <span>Info: This option makes you phase through anything, whether it's solid, liquid or any state of matter</span>
+                                        <span>Note: It does not protect you from phasing through hazards.</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="OptionName">
+                                    <div class="B-UTILS_Centered ConditionalSection InstakillConditional" style="border-bottom-left-radius: var(--br-opt-info); border-bottom-right-radius: var(--br-opt-info)">
+                                        <button class="B-UTILS_Button DetailsButton Instakill" onclick="Details('Instakill', 'open', 'Instakill')">
+                                            + | Instakill
+                                        </button>
+                                        <button class="B-UTILS_Button InstakillToggle OptionButton Disable" onclick='Toggle("InstakillToggle", "on")'>
+                                            Off
+                                        </button>
+                                    </div>
+                                    <div class="DetailsSection InstakillSection" style="display: none">
+                                        <span>Info: This option makes you kill anything in an instant</span>
+                                        <span>Note: How heartless can you get?</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="OptionName">
+                                    <div class="B-UTILS_Centered ConditionalSection FlyConditional" style="border-bottom-left-radius: var(--br-opt-info); border-bottom-right-radius: var(--br-opt-info)">
+                                        <button class="B-UTILS_Button DetailsButton Fly" onclick="Details('Fly', 'open', 'Flying')">
+                                            + | Flying
+                                        </button>
+                                        <button class="B-UTILS_Button FlyToggle OptionButton Disable" onclick='Toggle("FlyToggle", "on")'>
+                                            Off
+                                        </button>
+                                    </div>
+                                    <div class="DetailsSection FlySection" style="display: none">
+                                        <span>Info: This option makes you go up in the air, like a human drone</span>
+                                        <span>Note: Creative mode, but you take a serious fall damage.</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="OptionName">
+                                    <div class="B-UTILS_Centered ConditionalSection SpeedConditional" style="border-bottom-left-radius: var(--br-opt-info); border-bottom-right-radius: var(--br-opt-info)">
+                                        <button class="B-UTILS_Button DetailsButton Speed" onclick="Details('Speed', 'open', 'Speedhack')">
+                                            + | Speedhack
+                                        </button>
+                                        <button class="B-UTILS_Button SpeedToggle OptionButton Disable" onclick='Toggle("SpeedToggle", "on")'>
+                                            Off
+                                        </button>
+                                    </div>
+                                    <div class="DetailsSection SpeedSection" style="display: none">
+                                        <span>Info: This option makes you move faster</span>
+                                        <span>Note: <a href="https://www.newgrounds.com/audio/listen/467339" class="MainLink" target="_blank">At the speed of light?</a></span>
+                                        <br>
+                                        <button class="B-UTILS_Button ModifierButton SpeedModifier" onclick="Modifiers('Speed', 'open')">+ | Modifiers</button>
+                                        <div class="B-UTILS_Centered ModifierAttributes SpeedAttributes" style="display: none">
+                                            <span>
+                                                Speed: <input type="number" value="12" class="B-UTILS_Input ModifierInput SpeedModifier_Amount" />
+                                            </span>
+                                            <span>
+                                                Unit (Distance): 
+                                                <select class="B-UTILS_Selection ModifierSelection SpeedModifier_Unit">
+                                                    <option value="km" class="B-UTILS_Option ModifierOption">km</option>
+                                                    <option value="m" class="B-UTILS_Option ModifierOption">m</option>
+                                                    <option value="cm" class="B-UTILS_Option ModifierOption">cm</option>
+                                                    <option value="mm" class="B-UTILS_Option ModifierOption">mm</option>
+                                                </select>
+                                            </span>
+                                            <span>
+                                                Time (per): 
+                                                <select class="B-UTILS_Selection ModifierSelection SpeedModifier_Time">
+                                                    <option value="hr" class="B-UTILS_Option ModifierOption">hr</option>
+                                                    <option value="m" class="B-UTILS_Option ModifierOption">m</option>
+                                                    <option value="s" class="B-UTILS_Option ModifierOption">s</option>
+                                                    <option value="ms" class="B-UTILS_Option ModifierOption">ms</option>
+                                                </select>
+                                            </span>
+                                            <span>
+                                                Current speed: <span class="Value_SpeedAmount">12</span><span class="Value_SpeedDistance">km</span>/<span class="Value_SpeedTime">hr</span>
+                                            </span><br>
+                                            <button class="B-UTILS_Button ValueButton" onclick="SpeedSetter()">Set values</button>
+                                            <br>
+                                            <div class="B-UTILS_Centered AttributeName">
+                                                <span>Phase through solid objects</span>
+                                                <button class="B-UTILS_Button AttributeToggle Deny SpeedAttr_PhaseThrough" onclick="AttributeModifiers('SpeedAttr_PhaseThrough', 'allow')">Deny</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="OptionName">
+                                    <div class="B-UTILS_Centered ConditionalSection InvisibleConditional" style="border-bottom-left-radius: var(--br-opt-info); border-bottom-right-radius: var(--br-opt-info)">
+                                        <button class="B-UTILS_Button DetailsButton Invisible" onclick="Details('Invisible', 'open', 'Invisibility')">
+                                            + | Invisibility
+                                        </button>
+                                        <button class="B-UTILS_Button InvisibleToggle OptionButton Disable" onclick='Toggle("InvisibleToggle", "on")'>
+                                            Off
+                                        </button>
+                                    </div>
+                                    <div class="DetailsSection InvisibleSection" style="display: none">
+                                        <span>Info: This option makes everyone cannot see you're there</span>
+                                        <span>Note: It'll be nice to prank your imaginary friends at least.</span>
+                                        <br>
+                                        <button class="B-UTILS_Button ModifierButton InvisibleModifier" onclick="Modifiers('Invisible', 'open')">+ | Modifiers</button>
+                                        <div class="B-UTILS_Centered ModifierAttributes InvisibleAttributes" style="display: none;">
+                                            <div class="B-UTILS_Centered AttributeName">
+                                                <span>Produce no sound</span>
+                                                <button class="B-UTILS_Button AttributeToggle Deny InvisibleAttr_NoSound" onclick="AttributeModifiers('InvisibleAttr_NoSound', 'allow')">Deny</button>
+                                            </div>
+                                            <div class="B-UTILS_Centered AttributeName">
+                                                <span>Remove trails (May not work)</span>
+                                                <button class="B-UTILS_Button AttributeToggle Deny InvisibleAttr_NoTrails" onclick="AttributeModifiers('InvisibleAttr_NoTrails', 'allow')">Deny</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="OptionName">
+                                    <div class="B-UTILS_Centered ConditionalSection JumpConditional" style="border-bottom-left-radius: var(--br-opt-info); border-bottom-right-radius: var(--br-opt-info)">
+                                        <button class="B-UTILS_Button DetailsButton Jump" onclick="Details('Jump', 'open', 'Jumphack')">
+                                            + | Jumphack
+                                        </button>
+                                        <button class="B-UTILS_Button JumpToggle OptionButton Disable" onclick='Toggle("JumpToggle", "on")'>
+                                            Off
+                                        </button>
+                                    </div>
+                                    <div class="DetailsSection JumpSection" style="display: none">
+                                        <span>Info: This option makes you jump higher</span>
+                                        <span>Note: BOING!</span>
+                                         <br>
+                                        <button class="B-UTILS_Button ModifierButton JumpModifier" onclick="Modifiers('Jump', 'open')">+ | Modifiers</button>
+                                        <div class="B-UTILS_Centered ModifierAttributes JumpAttributes" style="display: none">
+                                            <span>
+                                                Jump power (N): <input type="number" value="2000" class="B-UTILS_Input ModifierInput JumpModifier_Power" />
+                                            </span>
+                                            <span>
+                                                Current speed: <span class="Value_JumpPower">2000</span>N
+                                            </span><br>
+                                            <button class="B-UTILS_Button ValueButton" onclick="JumpSetter()">Set values</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="OptionName">
+                                    <div class="B-UTILS_Centered ConditionalSection LuckConditional" style="border-bottom-left-radius: var(--br-opt-info); border-bottom-right-radius: var(--br-opt-info)">
+                                        <button class="B-UTILS_Button DetailsButton Luck" onclick="Details('Luck', 'open', 'Luck manipulation')">
+                                            + | Luck manipulation
+                                        </button>
+                                        <button class="B-UTILS_Button LuckToggle OptionButton Disable" onclick='Toggle("LuckToggle", "on")'>
+                                            Off
+                                        </button>
+                                    </div>
+                                    <div class="DetailsSection LuckSection" style="display: none">
+                                        <span>Info: This option increases your chances</span>
+                                        <span>Note: Just hope you'll be lucky enough to have a GF.</span>
+                                        <br>
+                                        <button class="B-UTILS_Button ModifierButton LuckModifier" onclick="Modifiers('Luck', 'open')">+ | Modifiers</button>
+                                        <div class="B-UTILS_Centered ModifierAttributes LuckAttributes" style="display: none">
+                                            <span>
+                                                Multiplier: <input type="number" value="10" class="B-UTILS_Input ModifierInput LuckModifier_Multiplier" />
+                                            </span>
+                                            <span>
+                                                Current luck: x<span class="Value_LuckMultiplier">10</span>
+                                            </span><br>
+                                            <button class="B-UTILS_Button ValueButton" onclick="LuckSetter()">Set values</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="OptionName">
+                                    <div class="B-UTILS_Centered ConditionalSection TelepathyConditional" style="border-bottom-left-radius: var(--br-opt-info); border-bottom-right-radius: var(--br-opt-info)">
+                                        <button class="B-UTILS_Button DetailsButton Telepathy" onclick="Details('Telepathy', 'open', 'Telepathy')">
+                                            + | Telepathy
+                                        </button>
+                                        <button class="B-UTILS_Button TelepathyToggle OptionButton Disable" onclick='Toggle("TelepathyToggle", "on")'>
+                                            Off
+                                        </button>
+                                    </div>
+                                    <div class="DetailsSection TelepathySection" style="display: none">
+                                        <span>Info: This option makes you read someone's thoughts</span>
+                                        <span>Note: If you're a weirdo this is for you.</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="OptionName">
+                                    <div class="B-UTILS_Centered ConditionalSection InstantHealConditional" style="border-bottom-left-radius: var(--br-opt-info); border-bottom-right-radius: var(--br-opt-info)">
+                                        <button class="B-UTILS_Button DetailsButton InstantHeal" onclick="Details('InstantHeal', 'open', 'Instant heal')">
+                                            + | Instant heal
+                                        </button>
+                                        <button class="B-UTILS_Button InstantHealToggle OptionButton Disable" onclick='Toggle("InstantHealToggle", "on")'>
+                                            Off
+                                        </button>
+                                    </div>
+                                    <div class="DetailsSection InstantHealSection" style="display: none">
+                                        <span>Info: This option makes every injury gets healed instantly</span>
+                                        <span>Note: Same as immortal, but it'll kill you at old age.</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="OptionName">
+                                    <div class="B-UTILS_Centered ConditionalSection ImmunityConditional" style="border-bottom-left-radius: var(--br-opt-info); border-bottom-right-radius: var(--br-opt-info)">
+                                        <button class="B-UTILS_Button DetailsButton Immunity" onclick="Details('Immunity', 'open', 'Immunity to sickness')">
+                                            + | Immunity to sickness
+                                        </button>
+                                        <button class="B-UTILS_Button ImmunityToggle OptionButton Disable" onclick='Toggle("ImmunityToggle", "on")'>
+                                            Off
+                                        </button>
+                                    </div>
+                                    <div class="DetailsSection ImmunitySection" style="display: none">
+                                        <span>Info: This option makes you a "perfect" person, removing every defects</span>
+                                        <span>Note: This includes physically and mentally.</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="OptionName">
+                                    <div class="B-UTILS_Centered ConditionalSection IntelligenceConditional" style="border-bottom-left-radius: var(--br-opt-info); border-bottom-right-radius: var(--br-opt-info)">
+                                        <button class="B-UTILS_Button DetailsButton Intelligence" onclick="Details('Intelligence', 'open', 'Intelligence manipulation')">
+                                            + | Intelligence manipulation
+                                        </button>
+                                        <button class="B-UTILS_Button IntelligenceToggle OptionButton Disable" onclick='Toggle("IntelligenceToggle", "on")'>
+                                            Off
+                                        </button>
+                                    </div>
+                                    <div class="DetailsSection IntelligenceSection" style="display: none">
+                                        <span>Info: This option makes you smarter, as said in the option</span>
+                                        <span>Note:</span>
+                                        <img src="images/memes/an-iq-too-high-meme.gif" width="350">
+                                         <br>
+                                        <button class="B-UTILS_Button ModifierButton IntelligenceModifier" onclick="Modifiers('Intelligence', 'open')">+ | Modifiers</button>
+                                        <div class="B-UTILS_Centered ModifierAttributes IntelligenceAttributes" style="display: none">
+                                            <span>
+                                                IQ: <input type="number" value="100" class="B-UTILS_Input ModifierInput IntelligenceModifier_IQ" />
+                                            </span>
+                                            <span>
+                                                Current IQ: <span class="Value_IQ">100</span>
+                                            </span><br>
+                                            <button class="B-UTILS_Button ValueButton" onclick="IntelligenceSetter()">Set values</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="B-UTILS_Centered Section Currency" style="display: none">
+                        <header class="B-UTILS_Centered SectionHeader">
+                            <h3 style="margin: 0px;">Currency section</h3>
+                        </header>
+                        <div class="SectionBody">
+                            <div class="B-UTILS_Centered SectionOptions">
+                                
+                                <div class="OptionName">
+                                    <div class="B-UTILS_Centered ConditionalSection UnMoneyConditional" style="border-bottom-left-radius: var(--br-opt-info); border-bottom-right-radius: var(--br-opt-info)">
+                                        <button class="B-UTILS_Button DetailsButton UnMoney" onclick="Details('UnMoney', 'open', 'Unlimited money')">
+                                            + | Unlimited money
+                                        </button>
+                                        <button class="B-UTILS_Button UnMoneyToggle OptionButton Disable" onclick='Toggle("UnMoneyToggle", "on")'>
+                                            Off
+                                        </button>
+                                    </div>
+                                    <div class="DetailsSection UnMoneySection" style="display: none">
+                                        <span>Info: This option lets you have unlimited money for the rest of your life</span>
+                                        <span>Note: Now you can be the richest person in the world, until they find out about this...</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="OptionName">
+                                    <div class="B-UTILS_Centered ConditionalSection TaxesConditional" style="border-bottom-left-radius: var(--br-opt-info); border-bottom-right-radius: var(--br-opt-info)">
+                                        <button class="B-UTILS_Button DetailsButton Taxes" onclick="Details('Taxes', 'open', 'Tax bypass')">
+                                            + | Tax bypass
+                                        </button>
+                                        <button class="B-UTILS_Button TaxesToggle OptionButton Disable" onclick='Toggle("TaxesToggle", "on")'>
+                                            Off
+                                        </button>
+                                    </div>
+                                    <div class="DetailsSection TaxesSection" style="display: none">
+                                        <span>Info: This option lets you evade taxes without legal actions</span>
+                                        <span>Note: Try to blend in so well.</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="OptionName">
+                                    <div class="B-UTILS_Centered ConditionalSection AllowanceConditional" style="border-bottom-left-radius: var(--br-opt-info); border-bottom-right-radius: var(--br-opt-info)">
+                                        <button class="B-UTILS_Button DetailsButton Allowance" onclick="Details('Allowance', 'open', 'Allowance')">
+                                            + | Allowance
+                                        </button>
+                                        <button class="B-UTILS_Button AllowanceToggle OptionButton Disable" onclick='Toggle("AllowanceToggle", "on")'>
+                                            Off
+                                        </button>
+                                    </div>
+                                    <div class="DetailsSection AllowanceSection" style="display: none">
+                                        <span>Info: This option gives you money at a specific quantity and time</span>
+                                        <span>Note: Basically a money generator for you.</span>
+                                        <br>
+                                        <button class="B-UTILS_Button ModifierButton AllowanceModifier" onclick="Modifiers('Allowance', 'open')">+ | Modifiers</button>
+                                        <div class="B-UTILS_Centered ModifierAttributes AllowanceAttributes" style="display: none">
+                                            <span>
+                                                Amount ($): <input type="number" value="12000" class="B-UTILS_Input ModifierInput AllowanceModifier_Amount" />
+                                            </span>
+                                            <span>
+                                                Rate (Time): 
+                                                <select class="B-UTILS_Selection ModifierSelection AllowanceModifier_Rate">
+                                                    <option value="yr" class="B-UTILS_Option ModifierOption">yr</option>
+                                                    <option value="mth" selected class="B-UTILS_Option ModifierOption">mth</option>
+                                                    <option value="hr" class="B-UTILS_Option ModifierOption">hr</option>
+                                                    <option value="m" class="B-UTILS_Option ModifierOption">m</option>
+                                                    <option value="s" class="B-UTILS_Option ModifierOption">s</option>
+                                                    <option value="ms" class="B-UTILS_Option ModifierOption">ms</option>
+                                                </select>
+                                            </span>
+                                            <span>
+                                                Current allowance: $<span class="Value_AllowanceAmount">12000</span>/<span class="Value_AllowanceRate">mth</span>
+                                            </span><br>
+                                            <button class="B-UTILS_Button ValueButton" onclick="AllowanceSetter()">Set values</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                 <div class="OptionName">
+                                    <div class="B-UTILS_Centered ConditionalSection DiscountConditional" style="border-bottom-left-radius: var(--br-opt-info); border-bottom-right-radius: var(--br-opt-info)">
+                                        <button class="B-UTILS_Button DetailsButton Discount" onclick="Details('Discount', 'open', 'Discount')">
+                                            + | Discount
+                                        </button>
+                                        <button class="B-UTILS_Button DiscountToggle OptionButton Disable" onclick='Toggle("DiscountToggle", "on")'>
+                                            Off
+                                        </button>
+                                    </div>
+                                    <div class="DetailsSection DiscountSection" style="display: none">
+                                        <span>Info: This option lets you get an item with a specific promotion</span>
+                                        <span>Note: Same thing as unlimited money, but you spend no cash. Which is good?</span>
+                                        <br>
+                                        <button class="B-UTILS_Button ModifierButton DiscountModifier" onclick="Modifiers('Discount', 'open')">+ | Modifiers</button>
+                                        <div class="B-UTILS_Centered ModifierAttributes DiscountAttributes" style="display: none">
+                                            <span>
+                                                Amount (0% - 100%): <input type="number" value="0" class="B-UTILS_Input ModifierInput DiscountModifier_Percentage" />
+                                            </span>
+                                            <span>
+                                                Current discount: <span class="Value_DiscountPercentage">0</span>%
+                                            </span><br>
+                                            <button class="B-UTILS_Button ValueButton" onclick="DiscountSetter()">Set values</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="B-UTILS_Centered Section World" style="display: none">
+                        <header class="B-UTILS_Centered SectionHeader">
+                            <h3 style="margin: 0px;">Map / World section</h3>
+                        </header>
+                        <div class="SectionBody">
+                            <div class="B-UTILS_Centered SectionOptions">
+                                
+                                <div class="OptionName">
+                                    <div class="B-UTILS_Centered ConditionalSection NightVisionConditional" style="border-bottom-left-radius: var(--br-opt-info); border-bottom-right-radius: var(--br-opt-info)">
+                                        <button class="B-UTILS_Button DetailsButton NightVision" onclick="Details('NightVision', 'open', 'Night vision')">
+                                            + | Night vision
+                                        </button>
+                                        <button class="B-UTILS_Button NightVisionToggle OptionButton Disable" onclick='Toggle("NightVisionToggle", "on")'>
+                                            Off
+                                        </button>
+                                    </div>
+                                    <div class="DetailsSection NightVisionSection" style="display: none">
+                                        <span>Info: This option lets you see through the dark</span>
+                                        <span>Note: Good luck trying to sleep</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="OptionName">
+                                    <div class="B-UTILS_Centered ConditionalSection XRayConditional" style="border-bottom-left-radius: var(--br-opt-info); border-bottom-right-radius: var(--br-opt-info)">
+                                        <button class="B-UTILS_Button DetailsButton XRay" onclick="Details('XRay', 'open', 'X-Ray vision')">
+                                            + | X-Ray vision
+                                        </button>
+                                        <button class="B-UTILS_Button XRayToggle OptionButton Disable" onclick='Toggle("XRayToggle", "on")'>
+                                            Off
+                                        </button>
+                                    </div>
+                                    <div class="DetailsSection XRaySection" style="display: none">
+                                        <span>Info: This option lets you see through objects in any matter</span>
+                                        <span>Note: Only for older people, don't attempt such things unless you're desensitized.<br>
+                                        Which wouldn't happen...</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="OptionName">
+                                    <div class="B-UTILS_Centered ConditionalSection PathTraceConditional" style="border-bottom-left-radius: var(--br-opt-info); border-bottom-right-radius: var(--br-opt-info)">
+                                        <button class="B-UTILS_Button DetailsButton PathTrace" onclick="Details('PathTrace', 'open', 'Path tracing')">
+                                            + | Path tracing
+                                        </button>
+                                        <button class="B-UTILS_Button PathTraceToggle OptionButton Disable" onclick='Toggle("PathTraceToggle", "on")'>
+                                            Off
+                                        </button>
+                                    </div>
+                                    <div class="DetailsSection PathTraceSection" style="display: none">
+                                        <span>Info: This option lets you track any location</span>
+                                        <span>Note: Seems like you are a Yandere if you really know what I mean</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="OptionName">
+                                    <div class="B-UTILS_Centered ConditionalSection IdentifyObjectConditional" style="border-bottom-left-radius: var(--br-opt-info); border-bottom-right-radius: var(--br-opt-info)">
+                                        <button class="B-UTILS_Button DetailsButton IdentifyObject" onclick="Details('IdentifyObject', 'open', 'Identification of objects')">
+                                            + | Identification of objects
+                                        </button>
+                                        <button class="B-UTILS_Button IdentifyObjectToggle OptionButton Disable" onclick='Toggle("IdentifyObjectToggle", "on")'>
+                                            Off
+                                        </button>
+                                    </div>
+                                    <div class="DetailsSection IdentifyObjectSection" style="display: none">
+                                        <span>Info: This option lets you get any information from any objects you interact with</span>
+                                        <span>Note: You liked chemistry didn't you?</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="OptionName">
+                                    <div class="B-UTILS_Centered ConditionalSection ObjCreatorConditional" style="border-bottom-left-radius: var(--br-opt-info); border-bottom-right-radius: var(--br-opt-info)">
+                                        <button class="B-UTILS_Button DetailsButton ObjCreator" onclick="Details('ObjCreator', 'open', 'Object creator')">
+                                            + | Object creator
+                                        </button>
+                                        <button class="B-UTILS_Button ObjCreatorToggle OptionButton Disable" onclick='Toggle("ObjCreatorToggle", "on")'>
+                                            Off
+                                        </button>
+                                    </div>
+                                    <div class="DetailsSection ObjCreatorSection" style="display: none">
+                                        <span>Info: This option lets you create any object from your mind / will</span>
+                                        <span>Note: Good luck about that</span>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="B-UTILS_Centered Section About" style="display: none">
+                        <header class="B-UTILS_Centered SectionHeader">
+                            <h3 style="margin: 0px;">About panel</h3>
+                        </header>
+                        <div class="SectionBody">
+                            <div class="B-UTILS_Centered SectionOptions">
+                                
+                                <div class="B-UTILS_Centered OptionContains">
+                                    <header class="B-UTILS_Centered OptionContains_Header">
+                                        <h3 style="margin: 0px">Versions</h3>
+                                    </header>
+                                    <div class="B-UTILS_Centered OptionContains_Body">
+                                        
+                                        <div class="B-UTILS_Centered DropdownContains">
+                                            <div class="B-UTILS_Centered DropdownMenu">
+                                                <button class="B-UTILS_Button DropdownButton Version_2026-6-25Dropdown" onclick="Dropdown('Version_2026-6-25', 'open', 'alpha-2026.06.25')">+ | alpha-2026.06.25</button>
+                                                <div class="B-UTILS_Centered DropdownContent Version_2026-6-25DropContent" style="display: none">
+                                                    <ul class="B-UTILS_List">
+                                                        <li>Creation of this admin panel</li>
+                                                        <li>
+                                                            3 sections has been created:
+                                                            <ul class="B-UTILS_List">
+                                                                <li>Character section</li>
+                                                                <li>Currency section</li>
+                                                                <li>About section (You are here)</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>Added a profile picture template (Profile system is still in development)</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="B-UTILS_Centered DropdownContains">
+                                            <div class="B-UTILS_Centered DropdownMenu">
+                                                <button class="B-UTILS_Button DropdownButton Version_2026-6-26Dropdown" onclick="Dropdown('Version_2026-6-26', 'open', 'alpha-2026.06.26')">+ | alpha-2026.06.26</button>
+                                                <div class="B-UTILS_Centered DropdownContent Version_2026-6-26DropContent" style="display: none">
+                                                    <ul class="B-UTILS_List">
+                                                        <li>Added a profile system (Still in experimental mode)</li>
+                                                        <li>
+                                                            Added new menus onto Settings
+                                                            <ul class="B-UTILS_List">
+                                                                <li>
+                                                                    Themes & Styling:
+                                                                    <ul class="B-UTILS_List">
+                                                                        <li>Top and bottom gradient stylers</li>
+                                                                        <li>Animation stylers</li>
+                                                                        <li>Font styler</li>
+                                                                    </ul>
+                                                                </li>
+                                                                <li>
+                                                                    Miscellaneous settings:
+                                                                    <ul class="B-UTILS_List">
+                                                                        <li>Glowing text (styler)</li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>Fixed a bug where some options that requires an input doesn't store its information due to the <code>&lt;value&gt;.includes(" ")</code> property in <code>if</code> statements [Owner]</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="B-UTILS_Centered DropdownContains">
+                                            <div class="B-UTILS_Centered DropdownMenu">
+                                                <button class="B-UTILS_Button DropdownButton Version_2026-6-27Dropdown" onclick="Dropdown('Version_2026-6-27', 'open', 'alpha-2026.06.27')">+ | alpha-2026.06.27</button>
+                                                <div class="B-UTILS_Centered DropdownContent Version_2026-6-27DropContent" style="display: none">
+                                                    <ul class="B-UTILS_List">
+                                                        <li>Added a customization to profile pictures (Experimental):</li>
+                                                        <ul class="B-UTILS_List">
+                                                            <li>X and Y offsets</li>
+                                                            <li>Profile zoom</li>
+                                                        </ul>
+                                                        <li>
+                                                            Added a new section:
+                                                            <ul class="B-UTILS_List">
+                                                                <li>
+                                                                    Map / World:
+                                                                    <ul class="B-UTILS_List">
+                                                                        <li>Night vision</li>
+                                                                        <li>X-Ray vision</li>
+                                                                        <li>Path tracing</li>
+                                                                        <li>Identification of objects</li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>Added information for each options</li>
+                                                        <li>There are no bugs detected for now</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="B-UTILS_Centered DropdownContains">
+                                            <div class="B-UTILS_Centered DropdownMenu">
+                                                <button class="B-UTILS_Button DropdownButton Version_2026-6-29Dropdown" onclick="Dropdown('Version_2026-6-29', 'open', 'release-2026.06.29 [Current]')">+ | release-2026.06.29 [Current]</button>
+                                                <div class="B-UTILS_Centered DropdownContent Version_2026-6-29DropContent" style="display: none">
+                                                    <ul class="B-UTILS_List">
+                                                        <li>Several features were added:
+                                                            <ul class="B-UTILS_List">
+                                                                <li>Credits menu (1 contributor currently)</li>
+                                                                <li>Login system</li>
+                                                                <li>Logout system</li>
+                                                                <li>Social links (beneath me)</li>
+                                                                <li>Fun stuff: 
+                                                                    <ul class="B-UTILS_List">
+                                                                        <li>Window buttons, in case you're bored :)</li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>Welcome to the first release!</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                
+                                <div class="B-UTILS_Centered OptionContains">
+                                    <header class="B-UTILS_Centered OptionContains_Header">
+                                        <h3 style="margin: 0px">Miscellaneous</h3>
+                                    </header>
+                                    <div class="B-UTILS_Centered OptionContains_Body">
+                                        
+                                        <div class="B-UTILS_Centered DropdownContains">
+                                            <div class="B-UTILS_Centered DropdownMenu">
+                                                <button class="B-UTILS_Button DropdownButton SocialDropdown" onclick="Dropdown('Social', 'open', 'Social links')">+ | Social links</button>
+                                                <div class="B-UTILS_Centered DropdownContent SocialDropContent" style="display: none">
+                                                    
+                                                    <span class="B-UTILS_Centered SocialLinks">
+                                                        <img class="B-UTILS_Image" src="images/soc_icon/YouTubeLogo.png" width="25" />
+                                                        |&nbsp;<a href="https://www.youtube.com/@NextKillbot" target="_blank" class="MainLink">@NextKillbøt</a>
+                                                    </span>
+                                                    
+                                                    <span class="B-UTILS_Centered SocialLinks">
+                                                        <img class="B-UTILS_Image" src="images/soc_icon/InstagramIcon.png" width="25" />
+                                                        |&nbsp;<a href="https://www.instagram.com/thefinalmonarch_/" target="_blank" class="MainLink">@Killbøt / @thefinalmonarch_</a>
+                                                    </span>
+                                                    
+                                                    <span class="B-UTILS_Centered SocialLinks">
+                                                        <img class="B-UTILS_Image" src="images/soc_icon/RobloxIcon.png" width="25" />
+                                                        |&nbsp;<a href="https://www.roblox.com/users/4703726476/profile" target="_blank" class="MainLink">@Killbot / @Root301916</a>
+                                                    </span>
+                                                    
+                                                    <span class="B-UTILS_Centered SocialLinks">
+                                                        <img class="B-UTILS_Image" src="images/soc_icon/TikTokIcon.png" width="25" />
+                                                        |&nbsp;<a href="https://www.tiktok.com/@killbotexe" target="_blank" class="MainLink">@Killbot / @killbotexe</a>
+                                                    </span>
+                                                    
+                                                    <span class="B-UTILS_Centered SocialLinks">
+                                                        <img class="B-UTILS_Image" src="images/soc_icon/DiscordIcon.png" width="25" />
+                                                        |&nbsp;<a href="javascript:void(0);" class="MainLink">@root301916</a>
+                                                    </span>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                
+                                <div class="B-UTILS_Centered OptionContains">
+                                    <header class="B-UTILS_Centered OptionContains_Header">
+                                        <h3 style="margin: 0px">About panel</h3>
+                                    </header>
+                                    <div class="B-UTILS_Centered OptionContains_Body">
+                                        
+                                        <div class="B-UTILS_Centered AboutPanel">
+                                            <img class="B-UTILS_Image" src="images/icon/adminPanel_v4.ico" width="150">
+                                            <div class="B-UTILS_Centered PanelDetails">
+                                                <h2 style="margin-top: 0px">BotUtils v1.0 (2026.06.29)</h2>
+                                                <span>Created by @Killbøt and others who supported this project.</span>
+                                                <span>Without your support, this project may no longer be finished.</span><br>
+                                                <span>Thank you for your support, once more.</span>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            let Preferences = {
+                Username: "Username here",
+                
+                AnimationSpeed: 0.35,
+                ClosingSpeed: 0.35 * 250,
+                Easing: "cubic-bezier(0, 1, 0.5, 1)",
+                
+                Glow: "0 0 0.5em",
+            }
+            
+            function ClosePopup() {
+                Milly.Style.ApplySingular("CustomPopup", "animation", `B-UTILS_Slide_Y_Disappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}, B-UTILS_FadeDisappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`, "class", 0)
+                Milly.Style.ApplySingular("PopupContains", "animation", `B-UTILS_FadeDisappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`, "class", 0)
+                
+                setTimeout(function(){
+                    Milly.Element.Delete("PopupContains", "class", 0)
+                }, Preferences.ClosingSpeed)
+            }
+            
+            function CreatePopup(Title, Text) {
+                Milly.Element.Create("body", "div", "class", "B-UTILS_Centered PopupContains", "tag", 0)
+                Milly.Style.ApplySingular("PopupContains", "animation", `B-UTILS_FadeAppear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`, "class", 0)
+                
+                Milly.Element.Create("PopupContains", "div", "class", "B-UTILS_Centered CustomPopup", "class", 0)
+                Milly.Style.ApplySingular("CustomPopup", "animation", `B-UTILS_Slide_Y_Appear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}, B-UTILS_FadeAppear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`, "class", 0)
+                
+                Milly.Element.Create("CustomPopup", "header", "class", "B-UTILS_Centered PopupHeader", "class", 0)
+                let Head = Milly.Element.Create("PopupHeader", "h2", "style", "margin: 0px;", "class", 0).CreatedObject
+                Head.innerHTML = Title
+                
+                let Body = Milly.Element.Create("CustomPopup", "div", "class", "B-UTILS_Centered PopupBody", "class", 0).CreatedObject
+                Body.innerHTML = Text
+                
+                Milly.Element.Create("CustomPopup", "div", "class", "B-UTILS_Centered PopupOptions", "class", 0)
+                let Cancel = Milly.Element.Create("PopupOptions", "button", "class", "B-UTILS_Button PopupButtons Cancel", "class", 0).CreatedObject
+                Cancel.innerHTML = "Cancel"
+                Cancel.onclick = function() {
+                    ClosePopup()
+                }
+                
+                let Okay = Milly.Element.Create("PopupOptions", "button", "class", "B-UTILS_Button PopupButtons Okay", "class", 0).CreatedObject
+                Okay.innerHTML = "Okay"
+                Okay.onclick = function() {
+                    ClosePopup()
+                }
+            }
+            
+            
+            function Load() {
+                Milly.Text.Set("title", "BotUtils", "tag", 0)
+                
+                Milly.Style.ApplySingular("LoginMenu", "animation", `B-UTILS_Flicker ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}, B-UTILS_Slide_Y_Appear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`, "class", 0)
+            } function Authenticate() {
+                let Username = Milly.Input.Get("LoginUsername", "class", 0).Value
+                let Password = Milly.Input.Get("LoginPassword", "class", 0).Value
+                
+                if ((Username.trim().length === 0 || Username === "") && (Password.trim().length === 0 || Password === "")) {
+                    CreatePopup("Login error", "Please enter your credentials")
+                } else {
+                    if ((Username.trim().length === 0 || Username === "") && (Password.trim().length !== 0 || Password !== "")) {
+                        CreatePopup("Login error", "Please enter your username")
+                    } else if ((Username.trim().length !== 0 || Username !== "") && (Password.trim().length === 0 || Password === "")) {
+                        CreatePopup("Login error", "Please enter your password")
+                    } else {
+                        Preferences.Username = Username
+                        
+                        Milly.Style.ApplySingular("LoginMenu", "animation", `B-UTILS_Slide_Y_Disappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}, B-UTILS_FadeDisappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`, "class", 0)
+                        
+                        Milly.Text.Set("Username", Preferences.Username, "class", 0)
+                        Milly.Text.Set("AccountState", "Verified", "class", 0)
+                        
+                        
+                        Milly.Input.Set("LoginUsername", "", "class", 0)
+                        Milly.Input.Set("LoginPassword", "", "class", 0)
+                        setTimeout(function() {
+                            Milly.Style.ApplySingular("LoginMenu", "display", "none", "class", 0)
+                            
+                            setTimeout(function() {
+                                Milly.Style.ApplyMultiple("MainMenu", {
+                                    animation: `B-UTILS_Slide_Y_Appear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}, B-UTILS_FadeAppear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`,
+                                    display: "flex",
+                                }, "class", 0)
+                                Milly.Style.ApplyMultiple("TopGradient", {
+                                    animation: `B-UTILS_FadeAppear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`,
+                                    display: "block"
+                                }, "class", 0)
+                                Milly.Style.ApplyMultiple("BottomGradient", {
+                                    animation: `B-UTILS_FadeAppear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`,
+                                    display: "block"
+                                }, "class", 0)
+                            }, 500)
+                        }, Preferences.ClosingSpeed)
+                    }
+                }
+            } function RealLogout() {
+                Milly.Style.ApplySingular("MainMenu", "animation", `B-UTILS_Slide_Y_Disappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}, B-UTILS_FadeDisappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`, "class", 0)
+                
+                Milly.Style.ApplySingular("TopGradient", "animation", `B-UTILS_FadeDisappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`, "class", 0)
+                Milly.Style.ApplySingular("BottomGradient", "animation", `B-UTILS_FadeDisappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`, "class", 0)
+                
+                setTimeout(function(){
+                    Milly.Style.ApplySingular("MainMenu", "display", "none", "class", 0)
+                    
+                    Milly.Style.ApplySingular("TopGradient", "display", "none", "class", 0)
+                    Milly.Style.ApplySingular("BottomGradient", "display", "none", "class", 0)
+                    
+                    setTimeout(function(){
+                        Milly.Style.ApplyMultiple("LoginMenu", {
+                            animation: `B-UTILS_Slide_Y_Appear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}, B-UTILS_FadeAppear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`,
+                            display: "flex",
+                        }, "class", 0)
+                    }, 500)
+                }, Preferences.ClosingSpeed)
+                
+            } function LogoutConfirmation() {        
+                let Countdown = 5
+                
+                Milly.Text.Set("LogoutButton", `Logout (${Countdown})`, "class", 0)
+                Milly.Attribute.Apply("LogoutButton", "onclick", "RealLogout()", "class", 0)
+                let Count = setInterval(function(){
+                    Countdown--
+                    Milly.Text.Set("LogoutButton", `Logout (${Countdown})`, "class", 0)
+                    if (Countdown === 0) {
+                        Milly.Text.Set("LogoutButton", `Logout`, "class", 0)
+                        Milly.Attribute.Apply("LogoutButton", "onclick", "LogoutConfirmation()", "class", 0)
+                        clearInterval(Count)
+                    }
+                }, 1000)
+            } function LaunchCredits() {
+                Milly.Style.ApplySingular("MainMenu", "animation", `B-UTILS_Slide_Y_Disappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}, B-UTILS_FadeDisappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`, "class", 0)
+                
+                Milly.Style.ApplySingular("TopGradient", "animation", `B-UTILS_FadeDisappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`, "class", 0)
+                Milly.Style.ApplySingular("BottomGradient", "animation", `B-UTILS_FadeDisappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`, "class", 0)
+                
+                setTimeout(function(){
+                    Milly.Style.ApplySingular("MainMenu", "display", "none", "class", 0)
+                
+                    Milly.Style.ApplySingular("TopGradient", "display", "none", "class", 0)
+                    Milly.Style.ApplySingular("BottomGradient", "display", "none", "class", 0)
+                    
+                    setTimeout(function(){
+                        Milly.Style.ApplyMultiple("CreditsMenu", {
+                            animation: `B-UTILS_FadeAppear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`,
+                            display: "flex",
+                        }, "class", 0)
+                        
+                        setTimeout(function(){
+                            Milly.Style.ApplyMultiple("CreditsIcon", {
+                                animation: `B-UTILS_Flicker ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`,
+                                display: "flex",
+                            }, "class", 0)
+                            
+                            setTimeout(function(){
+                                Milly.Style.ApplySingular("CreditsIcon", "animation", "Credits_Pop1 0.5s 1 cubic-bezier(0, 1, 1, 1)", "class", 0)
+                                
+                                setTimeout(function(){
+                                    Milly.Style.ApplySingular("CreditsIcon", "animation", `Credits_Pop2 0.5s 1 cubic-bezier(0.5, 1, 1, 0), B-UTILS_Flicker 0.5s 1 ${Preferences.Easing}`, "class", 0)
+                                    
+                                    setTimeout(function(){
+                                        Milly.Style.ApplySingular("body", "animation", `Shake 0.15s 1 linear`, "tag", 0)
+                                        
+                                        Milly.Style.ApplySingular("CreditsIcon", "animation", `B-UTILS_FadeDisappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`, "class", 0)
+                                        setTimeout(function(){
+                                            Milly.Style.ApplySingular("CreditsIcon", "display", `none`, "class", 0)
+                                            Milly.Style.ApplyMultiple("CreditsSection", {
+                                                animation: `B-UTILS_Slide_Y_Appear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}, B-UTILS_FadeAppear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}, B-UTILS_Flicker ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`,
+                                                display: "flex",
+                                            }, "class", 0)
+                                            
+                                            setTimeout(function(){
+                                                Milly.Style.ApplyMultiple("CreditsLeft", {
+                                                    animation: `B-UTILS_Flicker ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}, B-UTILS_Slide_Y_Appear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`,
+                                                    display: "flex",
+                                                }, "class", 0)
+                                                Milly.Style.ApplyMultiple("CreditsRight", {
+                                                    animation: `B-UTILS_Flicker ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}, B-UTILS_Slide_Y_Appear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`,
+                                                    display: "flex",
+                                                }, "class", 0)
+                                            }, 500)
+                                        }, Preferences.ClosingSpeed)
+                                    }, 495)
+                                }, 495)
+                            }, (Preferences.AnimationSpeed * 1000) / 2)
+                        }, 500)
+                    }, 500)
+                }, Preferences.ClosingSpeed)
+            } function ExitCredits() {
+                Milly.Style.ApplySingular("CreditsLeft", "animation", `B-UTILS_Slide_Y_Disappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}, B-UTILS_FadeDisappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`, "class", 0)
+                Milly.Style.ApplySingular("CreditsRight", "animation", `B-UTILS_Slide_Y_Disappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}, B-UTILS_FadeDisappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`, "class", 0)
+                
+                setTimeout(function(){
+                    Milly.Style.ApplySingular("CreditsLeft", "display", "none", "class", 0)
+                    Milly.Style.ApplySingular("CreditsRight", "display", "none", "class", 0)
+                    
+                    Milly.Style.ApplySingular("CreditsSection", "animation", `B-UTILS_Slide_Y_Disappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}, B-UTILS_FadeDisappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`, "class", 0)
+                    
+                    setTimeout(function(){
+                        Milly.Style.ApplySingular("CreditsSection", "display", "none", "class", 0)
+                    }, Preferences.ClosingSpeed)
+                    
+                    setTimeout(function(){
+                        Milly.Style.ApplySingular("CreditsMenu", "animation", `B-UTILS_FadeDisappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`, "class", 0)
+                        
+                        setTimeout(function(){
+                            Milly.Style.ApplySingular("CreditsMenu", "display", "none", "class", 0)
+                            
+                            Milly.Style.ApplyMultiple("MainMenu", {
+                                animation: `B-UTILS_Slide_Y_Appear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}, B-UTILS_FadeAppear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`,
+                                display: "flex",
+                            }, "class", 0)
+                            Milly.Style.ApplyMultiple("TopGradient", {
+                                animation: `B-UTILS_FadeAppear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`,
+                                display: "block"
+                            }, "class", 0)
+                            Milly.Style.ApplyMultiple("BottomGradient", {
+                                animation: `B-UTILS_FadeAppear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`,
+                                display: "block"
+                            }, "class", 0)
+                            
+                            Milly.Style.DeleteSingular("CreditsSection", "animation", "class", 0)
+                            Milly.Style.DeleteSingular("CreditsMenu", "animation", "class", 0)
+                            Milly.Style.DeleteSingular("CreditsLeft", "animation", "class", 0)
+                            Milly.Style.DeleteSingular("CreditsRight", "animation", "class", 0)
+                            Milly.Style.DeleteSingular("body", "animation", "tag", 0)
+                        }, Preferences.ClosingSpeed)
+                    }, 500)
+                }, Preferences.ClosingSpeed)
+            }
+            
+            
+            
+            
+            
+            function OverlayMenu(KeyWord) {
+                let Section = Milly.Element.Get("Section", "class")
+                
+                for (let Index = 0; Index < Section.length; Index++) {
+                    Milly.Style.ApplyMultiple("Section", {
+                        display: "none",
+                        animation: "none"
+                    }, "class", Index)
+                }
+                
+                Milly.Style.ApplyMultiple(KeyWord, {
+                    display: "flex",
+                    animation: `B-UTILS_FadeAppear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`
+                }, "class", 0)
+            } function Toggle(Parent, Mode) {
+                switch (Mode) {
+                    case "on":
+                        Milly.Attribute.Apply(Parent, "class", `B-UTILS_Button ${Parent} OptionButton Enable`, "class", 0)
+                        Milly.Text.Set(Parent, "On", "class", 0)
+                        Milly.Attribute.Apply(Parent, "onclick", `Toggle("${Parent}", "off")`, "class", 0)
+                        break;
+                    case "off":
+                        Milly.Attribute.Apply(Parent, "class", `B-UTILS_Button ${Parent} OptionButton Disable`, "class", 0)
+                        Milly.Text.Set(Parent, "Off", "class", 0)
+                        Milly.Attribute.Apply(Parent, "onclick", `Toggle("${Parent}", "on")`, "class", 0)
+                        break;
+                    default:
+                        console.error("Uhm idk")
+                    break;
+                }
+            } function AttributeModifiers(Parent, Mode) {
+                switch (Mode) {
+                    case "allow":
+                        Milly.Attribute.Apply(Parent, "class", `B-UTILS_Button AttributeToggle Allow ${Parent}`, "class", 0)
+                        Milly.Text.Set(Parent, "Allow", "class", 0)
+                        Milly.Attribute.Apply(Parent, "onclick", `AttributeModifiers("${Parent}", "deny")`, "class", 0)
+                        break;
+                    case "deny":
+                       Milly.Attribute.Apply(Parent, "class", `B-UTILS_Button AttributeToggle Deny ${Parent}`, "class", 0)
+                        Milly.Text.Set(Parent, "Deny", "class", 0)
+                        Milly.Attribute.Apply(Parent, "onclick", `AttributeModifiers("${Parent}", "allow")`, "class", 0)
+                        break;
+                    default:
+                        console.error("Uhm idk")
+                    break;
+                }
+            } function Details(KeyWord, Mode, PlaceHolder) {
+                switch (Mode) {
+                    case "open":
+                        Milly.Style.DeleteSingular(`${KeyWord}Section`, "animation", "class", 0)
+                        Milly.Style.ApplyMultiple(`${KeyWord}Conditional`, {
+                            borderBottomLeftRadius: "0px",
+                            borderBottomRightRadius: "0px",
+                        }, "class", 0)
+                        Milly.Style.ApplyMultiple(`${KeyWord}Section`, {
+                            display: "flex",
+                            animation: `B-UTILS_Scale_Y_Appear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}, B-UTILS_FadeAppear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`
+                        }, "class", 0)
+                        Milly.Text.Set(`${KeyWord}`, `- | ${PlaceHolder}`, "class", 0)
+                        Milly.Attribute.Apply(`${KeyWord}`, "onclick", `Details("${KeyWord}", "close", "${PlaceHolder}")`, "class", 0)
+                        break;
+                    case "close":
+                        Milly.Style.DeleteSingular(`${KeyWord}Section`, "animation", "class", 0)
+                        Milly.Style.ApplySingular(`${KeyWord}Section`, "animation", `B-UTILS_Scale_Y_Disappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}, B-UTILS_FadeDisappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`, "class", 0)
+                        Milly.Text.Set(`${KeyWord}`, `+ | ${PlaceHolder}`, "class", 0)
+                        Milly.Attribute.Apply(`${KeyWord}`, "onclick", "javascript:void(0)", "class", 0)
+                        
+                        setTimeout(function(){
+                            Milly.Style.ApplyMultiple(`${KeyWord}Conditional`, {
+                                borderBottomLeftRadius: "var(--br-opt-info)",
+                                borderBottomRightRadius: "var(--br-opt-info)",
+                            }, "class", 0)
+                            Milly.Attribute.Apply(`${KeyWord}`, "onclick", `Details("${KeyWord}", "open", "${PlaceHolder}")`, "class", 0)
+                            Milly.Style.ApplySingular(`${KeyWord}Section`, "display", "none", "class", 0)
+                        }, Preferences.ClosingSpeed)
+                        break;
+                    default:
+                        console.error("Uhm idk")
+                    break;
+                }
+            } function Modifiers(KeyWord, Mode) {
+                switch (Mode) {
+                    case "open":
+                        Milly.Style.DeleteSingular(`${KeyWord}Attributes`, "animation", "class", 0)
+                        Milly.Style.ApplyMultiple(`${KeyWord}Modifier`, {
+                            borderBottomLeftRadius: "0px",
+                            borderBottomRightRadius: "0px",
+                        }, "class", 0)
+                        Milly.Style.ApplyMultiple(`${KeyWord}Attributes`, {
+                            display: "flex",
+                            animation: `B-UTILS_Scale_Y_Appear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}, B-UTILS_FadeAppear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`
+                        }, "class", 0)
+                        Milly.Text.Set(`${KeyWord}Modifier`, `- | Modifiers`, "class", 0)
+                        Milly.Attribute.Apply(`${KeyWord}Modifier`, "onclick", `Modifiers("${KeyWord}", "close")`, "class", 0)
+                        break;
+                    case "close":
+                        Milly.Style.DeleteSingular(`${KeyWord}Attributes`, "animation", "class", 0)
+                        Milly.Style.ApplyMultiple(`${KeyWord}Modifier`, {
+                            borderBottomLeftRadius: "var(--br-btn-toggle)",
+                            borderBottomRightRadius: "var(--br-btn-toggle)",
+                        }, "class", 0)
+                        Milly.Style.ApplySingular(`${KeyWord}Attributes`, "animation", `B-UTILS_Scale_Y_Disappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}, B-UTILS_FadeDisappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`, "class", 0)
+                        Milly.Text.Set(`${KeyWord}Modifier`, `+ | Modifiers`, "class", 0)
+                        Milly.Attribute.Apply(`${KeyWord}Modifier`, "onclick", "javascript:void(0)", "class", 0)
+                        
+                        setTimeout(function(){
+                            Milly.Style.ApplySingular(`${KeyWord}Attributes`, "display", "none", "class", 0)
+                            Milly.Attribute.Apply(`${KeyWord}Modifier`, "onclick", `Modifiers("${KeyWord}", "open")`, "class", 0)
+                        }, Preferences.ClosingSpeed)
+                        break;
+                    default:
+                        console.error("Uhm idk")
+                    break;
+                }
+            } function Dropdown(KeyWord, Mode, PlaceHolder) {
+                switch (Mode) {
+                    case "open":
+                        Milly.Style.DeleteSingular(`${KeyWord}DropContent`, "animation", "class", 0)
+                        Milly.Style.ApplyMultiple(`${KeyWord}Dropdown`, {
+                            borderBottomLeftRadius: "0px",
+                            borderBottomRightRadius: "0px",
+                        }, "class", 0)
+                        Milly.Style.ApplyMultiple(`${KeyWord}DropContent`, {
+                            display: "flex",
+                            animation: `B-UTILS_Scale_Y_Appear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}, B-UTILS_FadeAppear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`
+                        }, "class", 0)
+                        Milly.Text.Set(`${KeyWord}Dropdown`, `- | ${PlaceHolder}`, "class", 0)
+                        Milly.Attribute.Apply(`${KeyWord}Dropdown`, "onclick", `Dropdown("${KeyWord}", "close", "${PlaceHolder}")`, "class", 0)
+                        break;
+                    case "close":
+                        Milly.Style.DeleteSingular(`${KeyWord}DropContent`, "animation", "class", 0)
+                        Milly.Style.ApplyMultiple(`${KeyWord}Dropdown`, {
+                            borderBottomLeftRadius: "var(--br-dropdown-btn)",
+                            borderBottomRightRadius: "var(--br-dropdown-btn)",
+                        }, "class", 0)
+                        Milly.Style.ApplySingular(`${KeyWord}DropContent`, "animation", `B-UTILS_Scale_Y_Disappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}, B-UTILS_FadeDisappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`, "class", 0)
+                        Milly.Text.Set(`${KeyWord}Dropdown`, `+ | ${PlaceHolder}`, "class", 0)
+                        Milly.Attribute.Apply(`${KeyWord}Dropdown`, "onclick", "javascript:void(0)", "class", 0)
+                        
+                        setTimeout(function(){
+                            Milly.Style.ApplySingular(`${KeyWord}DropContent`, "display", "none", "class", 0)
+                            Milly.Attribute.Apply(`${KeyWord}Dropdown`, "onclick", `Dropdown("${KeyWord}", "open", "${PlaceHolder}")`, "class", 0)
+                        }, Preferences.ClosingSpeed)
+                        break;
+                    default:
+                        console.error("Uhm idk")
+                    break;
+                }
+            } function GradientEnabler(KeyWord, Mode) {
+                switch (Mode) {
+                    case "true":
+                        Milly.Style.DeleteSingular(KeyWord, "animation", "class", 0)
+                        Milly.Attribute.Apply(`${KeyWord}Toggle`, "class", `B-UTILS_Button DropdownToggle True ${KeyWord}Toggle`, "class", 0)
+                        Milly.Text.Set(`${KeyWord}Toggle`, "True", "class", 0)
+                        Milly.Attribute.Apply(`${KeyWord}Toggle`, "onclick", `GradientEnabler("${KeyWord}", "false")`, "class", 0)
+                        Milly.Style.ApplyMultiple(KeyWord, {
+                            display: "flex",
+                            animation: `B-UTILS_FadeAppear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`
+                        }, "class", 0)
+                        break;
+                    case "false":
+                        Milly.Style.DeleteSingular(KeyWord, "animation", "class", 0)
+                        Milly.Attribute.Apply(`${KeyWord}Toggle`, "class", `B-UTILS_Button DropdownToggle False ${KeyWord}Toggle`, "class", 0)
+                        Milly.Text.Set(`${KeyWord}Toggle`, "False", "class", 0)
+                        Milly.Attribute.Apply(`${KeyWord}Toggle`, "onclick", `GradientEnabler("${KeyWord}", "true")`, "class", 0)
+                        Milly.Style.ApplySingular(KeyWord, "animation", `B-UTILS_FadeDisappear ${Preferences.AnimationSpeed}s 1 ${Preferences.Easing}`, "class", 0)
+                        
+                        setTimeout(function(){
+                            Milly.Style.ApplySingular(KeyWord, "display", "none", "class", 0)
+                        }, Preferences.ClosingSpeed)
+                        break;
+                    default:
+                        console.error("Uhm idk")
+                    break;
+                }
+            } function GlowEnabler(KeyWord, Mode) {
+                let Button = Milly.Element.Get("button", "tag")
+                let Input = Milly.Element.Get("input", "tag")
+                
+                switch (Mode) {
+                    case "true":
+                        Milly.Attribute.Apply(`${KeyWord}Toggle`, "class", `B-UTILS_Button DropdownToggle True ${KeyWord}Toggle`, "class", 0)
+                        Milly.Text.Set(`${KeyWord}Toggle`, "True", "class", 0)
+                        Milly.Attribute.Apply(`${KeyWord}Toggle`, "onclick", `GlowEnabler("${KeyWord}", "false")`, "class", 0)
+                        
+                        for (let ButtonIndex = 0; ButtonIndex < Button.length; ButtonIndex++) {
+                            Milly.Style.ApplySingular("button", "text-shadow", Preferences.Glow, "tag", ButtonIndex)
+                        } for (let InputIndex = 0; InputIndex < Input.length; InputIndex++) {
+                            Milly.Style.ApplySingular("input", "text-shadow", Preferences.Glow, "tag", InputIndex)
+                        }
+                        Milly.Style.ApplySingular("body", "text-shadow", Preferences.Glow, "tag", 0)
+                        break;
+                    case "false":
+                        Milly.Attribute.Apply(`${KeyWord}Toggle`, "class", `B-UTILS_Button DropdownToggle False ${KeyWord}Toggle`, "class", 0)
+                        Milly.Text.Set(`${KeyWord}Toggle`, "False", "class", 0)
+                        Milly.Attribute.Apply(`${KeyWord}Toggle`, "onclick", `GlowEnabler("${KeyWord}", "true")`, "class", 0)
+                        
+                        for (let ButtonIndex = 0; ButtonIndex < Button.length; ButtonIndex++) {
+                            Milly.Style.DeleteSingular("button", "text-shadow", "tag", ButtonIndex)
+                        } for (let InputIndex = 0; InputIndex < Input.length; InputIndex++) {
+                            Milly.Style.DeleteSingular("input", "text-shadow", "tag", InputIndex)
+                        }
+                        Milly.Style.DeleteSingular("body", "text-shadow", "tag", 0)
+                        break;
+                    default:
+                        console.error("Uhm idk")
+                    break;
+                }
+            } function TogglePassword(Caller, Input, Mode) {
+                switch (Mode) {
+                    case "show":
+                        Milly.Attribute.Apply(Input, "type", "text", "class", 0)
+                        Milly.Text.Set(Caller, "(hide)", "class", 0)
+                        
+                        Milly.Attribute.Apply(Caller, "onclick", `TogglePassword("${Caller}", "${Input}", "hide")`, "class", 0)
+                        
+                        break;
+                    case "hide":
+                        Milly.Attribute.Apply(Input, "type", "password", "class", 0)
+                        Milly.Text.Set(Caller, "(show)", "class", 0)
+                        
+                        Milly.Attribute.Apply(Caller, "onclick", `TogglePassword("${Caller}", "${Input}", "show")`, "class", 0)
+                        
+                        break;
+                    default:
+                        break;
+                }
+            }
+            
+            
+            function ProfilePicture() {
+                let PicturePath = Milly.Input.GetFile("NewProfilePicture", "class", "image", 0, 0)
+                
+                if (PicturePath.Value === undefined) {
+                    Milly.Attribute.Apply("DisplayPicture", "src", "profilepicture/template.jpg", "class", 0)
+                } else {
+                    Milly.Attribute.Apply("DisplayPicture", "src", PicturePath.Value, "class", 0)
+                }
+                
+                let NewUsername = Milly.Input.Get("NewUsername", "class", 0)
+                
+                if (NewUsername.Value.trim().length === 0 || NewUsername.Value === "") {
+                    null
+                } else {
+                    Preferences.Username = NewUsername.Value
+                    Milly.Text.Set("Username", Preferences.Username, "class", 0)
+                }
+                
+                let XOffset = Milly.Input.Get("ProfileXOffset", "class", 0)
+                let YOffset = Milly.Input.Get("ProfileYOffset", "class", 0)
+                let ProfileZoom = Milly.Input.Get("ProfileZoom", "class", 0)
+                
+                if (XOffset.Value.trim().length === 0 || XOffset.Value === "") {
+                    Milly.Style.ApplySingular("html", "--X-Offset", "0px", "tag", 0)
+                } else {
+                    Milly.Style.ApplySingular("html", "--X-Offset", XOffset.Value, "tag", 0)
+                }
+                
+                if (YOffset.Value.trim().length === 0 || YOffset.Value === "") {
+                    Milly.Style.ApplySingular("html", "--Y-Offset", "0px", "tag", 0)
+                } else {
+                    Milly.Style.ApplySingular("html", "--Y-Offset", YOffset.Value, "tag", 0)
+                }
+                
+                if (ProfileZoom.Value.trim().length === 0 || ProfileZoom.Value === "") {
+                    Milly.Style.ApplySingular("html", "--ScaleProfile", "0%", "tag", 0)
+                } else {
+                    Milly.Style.ApplySingular("html", "--ScaleProfile", `${ProfileZoom.Value}%`, "tag", 0)
+                }
+            } function StyleOverride() {
+                let TopGradient = {
+                    Color: Milly.Input.Get("MainTopGradientColor", "class", 0).Value,
+                    Transparency: Milly.Input.Get("MainTopGradientTransparency", "class", 0).Value,
+                    Height: Milly.Input.Get("MainTopGradientHeight", "class", 0).Value
+                }
+                Milly.Style.ApplySingular("html", "--TopGradientColor", TopGradient.Color, "tag", 0)
+                if (TopGradient.Transparency > 100) {
+                    Milly.Style.ApplySingular("html", "--TopGradientTransparency", `100%`, "tag", 0)
+                } else if (TopGradient.Transparency < 0) {
+                    Milly.Style.ApplySingular("html", "--TopGradientTransparency", `50%`, "tag", 0)
+                } else {
+                    Milly.Style.ApplySingular("html", "--TopGradientTransparency", `${TopGradient.Transparency}%`, "tag", 0)
+                }
+                if (TopGradient.Height > 100) {
+                    Milly.Style.ApplySingular("html", "--TopGradientHeight", `100%`, "tag", 0)
+                } else if (TopGradient.Height < 0) {
+                    Milly.Style.ApplySingular("html", "--TopGradientHeight", `25%`, "tag", 0)
+                } else {
+                    Milly.Style.ApplySingular("html", "--TopGradientHeight", `${TopGradient.Height}%`, "tag", 0)
+                }
+                
+                let BottomGradient = {
+                    Color: Milly.Input.Get("MainBottomGradientColor", "class", 0).Value,
+                    Transparency: Milly.Input.Get("MainBottomGradientTransparency", "class", 0).Value,
+                    Height: Milly.Input.Get("MainBottomGradientHeight", "class", 0).Value
+                }
+                Milly.Style.ApplySingular("html", "--BottomGradientColor", BottomGradient.Color, "tag", 0)
+                if (BottomGradient.Transparency > 100) {
+                    Milly.Style.ApplySingular("html", "--BottomGradientTransparency", `100%`, "tag", 0)
+                } else if (BottomGradient.Transparency < 0) {
+                    Milly.Style.ApplySingular("html", "--BottomGradientTransparency", `50%`, "tag", 0)
+                } else {
+                    Milly.Style.ApplySingular("html", "--BottomGradientTransparency", `${BottomGradient.Transparency}%`, "tag", 0)
+                }
+                if (BottomGradient.Height > 100) {
+                    Milly.Style.ApplySingular("html", "--BottomGradientHeight", `100%`, "tag", 0)
+                } else if (BottomGradient.Height < 0) {
+                    Milly.Style.ApplySingular("html", "--BottomGradienttHeight", `25%`, "tag", 0)
+                } else {
+                    Milly.Style.ApplySingular("html", "--BottomGradientHeight", `${BottomGradient.Height}%`, "tag", 0)
+                }
+                
+                
+                let AnimationDuration = Milly.Input.Get("AnimationDuration", "class", 0)
+                let AnimationEasing = Milly.Input.Get("AnimationEasing", "class", 0)
+                
+                if (AnimationDuration.Value < 0) {
+                    Preferences.AnimationSpeed = 0.35
+                    Preferences.ClosingSpeed = 0.35 * 250
+                } else {
+                    Preferences.AnimationSpeed = AnimationDuration.Value
+                    Preferences.ClosingSpeed = AnimationDuration.Value * 250
+                }
+                
+                if (AnimationEasing.Value.trim().length === 0 || AnimationEasing.Value === "") {
+                    Preferences.Easing = "cubic-bezier(0, 1, 0.5, 1)"
+                } else {
+                    Preferences.Easing = AnimationEasing.Value
+                }
+                
+                
+                let FontSelection = Milly.Input.Get("FontSelection", "class", 0)
+                
+                if (FontSelection.Value === "") {
+                    Milly.Style.ApplySingular("html", "--MainFont", "JetBrains Mono", "tag", 0)
+                } else {
+                    Milly.Style.ApplySingular("html", "--MainFont", FontSelection.Value, "tag", 0)
+                }
+            } function MiscOverride() {
+                let GlowValue = Milly.Input.Get("GlowStyle", "class", 0)
+                
+                if (GlowValue.Value === "") {
+                    null
+                } else {
+                    Preferences.Glow = GlowValue.Value
+                    console.log(GlowValue.Value)
+                }
+            } function SpeedSetter() {
+                let Speed = Milly.Input.Get("SpeedModifier_Amount", "class", 0)
+                let Unit = Milly.Input.Get("SpeedModifier_Unit", "class", 0)
+                let Time = Milly.Input.Get("SpeedModifier_Time", "class", 0)
+                
+                if (Speed.Value.trim().length === 0 || Speed.Value === "") {
+                    Milly.Text.Set("Value_SpeedAmount", "12", "class", 0)
+                    Milly.Text.Set("Value_SpeedDistance", Unit.Value, "class", 0)
+                    Milly.Text.Set("Value_SpeedTime", Time.Value, "class", 0)
+                } else {
+                    Milly.Text.Set("Value_SpeedAmount", Speed.Value, "class", 0)
+                    Milly.Text.Set("Value_SpeedDistance", Unit.Value, "class", 0)
+                    Milly.Text.Set("Value_SpeedTime", Time.Value, "class", 0)
+                }
+            } function JumpSetter() {
+                let Power = Milly.Input.Get("JumpModifier_Power", "class", 0)
+                
+                if (Power.Value.trim().length === 0 || Power.Value === "") {
+                    Milly.Text.Set("Value_JumpPower", "2000", "class", 0)
+                } else {
+                    Milly.Text.Set("Value_JumpPower", Power.Value, "class", 0)
+                }
+            } function IntelligenceSetter() {
+                let IQ = Milly.Input.Get("IntelligenceModifier_IQ", "class", 0)
+                
+                if (IQ.Value.trim().length === 0 || IQ.Value === "") {
+                    Milly.Text.Set("Value_IQ", "100", "class", 0)
+                } else {
+                    Milly.Text.Set("Value_IQ", IQ.Value, "class", 0)
+                }
+            } function LuckSetter() {
+                let Multiplier = Milly.Input.Get("LuckModifier_Multiplier", "class", 0)
+                
+                if (Multiplier.Value.trim().length === 0 || Multiplier.Value === "") {
+                    Milly.Text.Set("Value_LuckMultiplier", "10", "class", 0)
+                } else {
+                    Milly.Text.Set("Value_LuckMultiplier", Multiplier.Value, "class", 0)
+                }
+            } function AllowanceSetter() {
+                let Amount = Milly.Input.Get("AllowanceModifier_Amount", "class", 0)
+                let Rate = Milly.Input.Get("AllowanceModifier_Rate", "class", 0)
+                
+                if (Amount.Value.trim().length === 0 || Amount.Value === "") {
+                    Milly.Text.Set("Value_AllowanceAmount", "12000", "class", 0)
+                    Milly.Text.Set("Value_AllowanceRate", Rate.Value, "class", 0)
+                } else {
+                    Milly.Text.Set("Value_AllowanceAmount", Amount.Value, "class", 0)
+                    Milly.Text.Set("Value_AllowanceRate", Rate.Value, "class", 0)
+                }
+            } function DiscountSetter() {
+                let Percentage = Milly.Input.Get("DiscountModifier_Percentage", "class", 0)
+                
+                if (Percentage.Value.trim().length === 0 || Percentage.Value === "") {
+                    Milly.Text.Set("Value_DiscountPercentage", "0", "class", 0)
+                } else {
+                    if (Percentage.Value > 100) {
+                        Milly.Text.Set("Value_DiscountPercentage", "100", "class", 0)
+                    } else if (Percentage.Value < 0) {
+                        Milly.Text.Set("Value_DiscountPercentage", "0", "class", 0)
+                    } else {
+                        Milly.Text.Set("Value_DiscountPercentage", Percentage.Value, "class", 0)
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

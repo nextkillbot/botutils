@@ -1,0 +1,413 @@
+html {
+    scrollbar-color: #9595ff transparent;
+    
+    --fg-link: #acacff;
+    --fg-link-hov: #6c6cff;
+    --fg-link-act: #aa00ff;
+    
+    --bg-menu: #0C0029;
+    --fg-menu: #8550ff;
+    --border-menu: #4F00FF;
+    --pad-menu: 4px;
+    
+    --bd-menu: 2.5px;
+    --br-menu: 7.5px;
+    
+    
+    --separator: #e4e4ff;
+    
+    
+    --bg-header-menu: #190054;
+    --fg-header-menu: #8652ff;
+    --border-header-menu: #6520ff;
+    --pad-header-menu: 2px;
+    
+    --bd-header-menu: 2.5px;
+    --br-header-menu: 7.5px;
+    
+    
+    --bg-userdisp-menu: #002d4f;
+    --fg-userdisp-menu: #c8e7ff;
+    --border-userdisp-menu: #0091ff;
+    
+    --bd-userdisp-menu: 2px;
+    --br-userdisp-menu: 5px;
+    
+    --bg-acc-btn: #512c00;
+    --fg-acc-btn: #ffe4c5;
+    --border-acc-btn: #FF8900;
+    
+    --bg-acc-act-btn: #874a00;
+    --fg-acc-act-btn: #ffedd9;
+    
+    --bd-acc-btn: 2px;
+    --br-acc-btn: 5px;
+    
+    
+    --bg-logout-btn: #501600;
+    --fg-logout-btn: #ffa17d;
+    --border-logout-btn: #ff4600;
+    
+    --bg-logout-act-btn: #762000;
+    --fg-logout-act-btn: #ffb89c;
+    
+    --bd-logout-btn: 2px;
+    --br-logout-btn: 5px;
+    
+    
+    --bg-file-btn: #41004b;
+    --fg-file-btn: #ee83ff;
+    --border-file-btn: #DD00FF;
+    
+    --bg-file-act-btn: #610070;
+    --fg-file-act-btn: #f7c5ff;
+    
+    --bd-file-btn: 2px;
+    --br-file-btn: 5px;
+    
+    
+    --bg-acc_sav-btn: #1e0049;
+    --fg-acc_sav-btn: #be90ff;
+    --border-acc_sav-btn: #6A00FF;
+    
+    --bg-acc_sav-act-btn: #2e0071;
+    --fg-acc_sav-act-btn: #d6b9ff;
+    
+    --bd-acc_sav-btn: 2px;
+    --br-acc_sav-btn: 5px;
+    
+    
+    --bg-userdisp_name-menu: #3f0056;
+    --fg-userdisp_name-menu: #eab2ff;
+    --border-userdisp_name-menu: #bb00ff;
+    
+    --bd-userdisp_name-menu: 2px;
+    --br-userdisp_name-menu: 5px;
+    
+    
+    --bg-body-menu: #000A2E;
+    --fg-body-menu: #345eff;
+    --border-body-menu: #0036FF;
+    --pad-body-menu: 3.5px;
+    
+    --bd-body-menu: 2.5px;
+    --br-body-menu: 7.5px;
+    
+    
+    --bg-cont-menu: #0f0030;
+    --fg-cont-menu: #874fff;
+    --border-cont-menu: #5100ff;
+    --pad-cont-menu: 2px;
+    
+    --bd-cont-menu: 2.5px;
+    --br-cont-menu: 7.5px;
+    
+    
+    --bg-btn: #ffffff25;
+    --fg-btn: #8057ff;
+    
+    --bg-btn-hov: #ffffff50;
+    --fg-btn-hov: #9e7fff;
+    
+    --bg-btn-act: #ffffff75;
+    --fg-btn-act: #c6b4ff;
+    
+    --pad-btn: 3px 3px;
+    
+    --bd-btn: 2.5px;
+    --br-btn: 5px;
+    
+    
+    --border-sect-header: #6500ff;
+    --pad-sect-header: 2px 4px;
+    
+    --bd-sect-header: 3px;
+    
+    
+    --br-btn-toggle: 5px;
+    
+    --bg-btn-disable: #ff000050;
+    --fg-btn-disable: #ff0000;
+    --bg-btn-act-disable: #ff757550;
+    --fg-btn-act-disable: #ff7575;
+    
+    --bg-btn-enable: #00ff0050;
+    --fg-btn-enable: #00ff00;
+    --bg-btn-act-enable: #75ff7550;
+    --fg-btn-act-enable: #75ff75;
+    
+    
+    --bg-opt-info: #000e70;
+    --fg-opt-info: #1936ff;
+    
+    --br-opt-info: 5px;
+    
+    --bg-opt-cont: #0000ff50;
+    --fg-opt-cont: #7f7fff;
+    --border-opt-cont: #0000ff;
+    
+    --bd-opt-cont: 2px;
+    --br-opt-cont: 5px;
+    
+    
+    --bg-opt-cont_header: #aa00ff50;
+    --fg-opt-cont_header: #de9cff;
+    --border-opt-cont_header: #aa00ff;
+    
+    --bd-opt-cont_header: 2px;
+    --br-opt-cont_header: 5px;
+    
+    
+    --bg-opt-cont_body: #00aaff50;
+    --fg-opt-cont_body: #bbe8ff;
+    --border-opt-cont_body: #00aaff;
+    
+    --bd-opt-cont_body: 2px;
+    --br-opt-cont_body: 5px;
+    
+    
+    --bg-det-btn: #21004b;
+    --fg-det-btn: #9541ff;
+    --bg-det-act-btn: #410094;
+    --fg-det-act-btn: #bc87ff;
+    
+    --br-det-btn: 5px;
+    
+    
+    --bg-det-menu: #001b61;
+    --fg-det-menu: #5d8aff;
+    
+    --br-det-menu: 5px;
+    
+    
+    --bg-mod-btn: #390055;
+    --fg-mod-btn: #da8eff;
+    
+    --bg-mod-act-btn: #5f008d;
+    --fg-mod-act-btn: #f0d1ff;
+    
+    --br-mod-btn: 5px;
+    
+    
+    --bg-mod-menu: #001840;
+    --fg-mod-menu: #a6c8ff;
+    
+    --br-mod-menu: 5px;
+    
+    
+    --bg-inp-mod: transparent;
+    --fg-inp-mod: #9999ff;
+    --borderbottom-inp-mod: #4242ff;
+    
+    --bg-inp-focus-mod: linear-gradient(to top, #000075, transparent);
+    --fg-inp-focus-mod: #d2d2ff;
+    --borderbottom-inp-focus-mod: #0000ff;
+    
+    --bd-inp-mod: 2.5px;
+    --br-inp-mod: 2.5px;
+    
+    --bg-mod-sel: #530047;
+    --fg-mod-sel: #ffb3f4;
+    --bg-mod-act-sel: #7e006c;
+    --fg-mod-act-sel: #ffd9f9;
+    --border-mod-sel: #ff00da;
+    
+    --bd-mod-sel: 2px;
+    --br-mod-sel: 5px;
+    
+    
+    --bg-mod-opt: #5a0062;
+    --fg-mod-opt: #f475ff;
+    --bg-mod-act-opt: #9600a2;
+    --fg-mod-act-opt: #fabaff;
+    
+    
+    --bg-val-btn: #00006d;
+    --fg-val-btn: #7575ff;
+    --bg-val-act-btn: #0000a8;
+    --fg-val-act-btn: #b4b4ff;
+    
+    --br-val-btn: 5px;
+    
+    
+    --bg-atr-submenu: #ffffff50;
+    --fg-atr-submenu: #ffffff;
+    
+    --br-atr-submenu: 5px;
+    
+    --bg-atr-allow-toggle: #00ff0075;
+    --fg-atr-allow-toggle: #00ff00;
+    --bg-atr-allow-act-toggle: #50ff5075;
+    --fg-atr-allow-act-toggle: #00ff50;
+    
+    --bg-atr-deny-toggle: #ff000075;
+    --fg-atr-deny-toggle: #ff0000;
+    --bg-atr-deny-act-toggle: #ff505075;
+    --fg-atr-deny-act-toggle: #ff5050;
+    
+    --br-atr-toggle: 5px;
+    
+    
+    --bg-dropdown-menu: #7c0031;
+    --fg-dropdown-menu: #ffb2d0;
+    --border-dropdown-menu: #F52779;
+    
+    --bd-dropdown-menu: 2px;
+    --br-dropdown-menu: 5px;
+    
+    --bg-dropdown-btn: #510035;
+    --fg-dropdown-btn: #ffa9e2;
+    
+    --bg-dropdown-act-btn: #74004c;
+    --fg-dropdown-act-btn: #ffd2f0;
+    
+    --br-dropdown-btn: 5px;
+    
+    
+    --bg-dropdown-cont: #550051;
+    --fg-dropdown-cont: #ffc4fc;
+    
+    --br-dropdown-cont: 5px;
+    
+    --bg-dropdown-inp: linear-gradient(to top, #7e005c, transparent);
+    --fg-dropdown-inp: #ffaae8;
+    --borderbottom-dropdown-inp: #ff00ba;
+    
+    --bg-dropdown-col-inp: #50003b;
+    --border-dropdown-col-inp: #ff00ba;
+    
+    --bg-dropdown-col-act-inp: #890065;
+    
+    --bd-dropdown-inp: 2.5px;
+    
+    --br-dropdown-col-inp: 5px;
+    --bd-dropdown-col-inp: 2px;
+    
+    
+    --bg-dropdown-attr-mod: #ffffff95;
+    --fg-dropdown-attr-mod: #ffffff;
+    
+    --br-dropdown-attr-mod: 5px;
+    
+    --bg-dropdown-attr-true-btn: #00ff0075;
+    --fg-dropdown-attr-true-btn: #75ff75;
+    
+    --bg-dropdown-attr-true-act-btn: #60ff6075;
+    --fg-dropdown-attr-true-act-btn: #b0ffb0;
+    
+    
+    --bg-dropdown-attr-false-btn: #ff000075;
+    --fg-dropdown-attr-false-btn: #ff7575;
+    
+    --bg-dropdown-attr-false-act-btn: #ff606075;
+    --fg-dropdown-attr-false-act-btn: #ffb0b0;
+    
+    --br-dropdown-attr-btn: 5px;
+    
+    
+    
+    
+    
+    --bg-login-menu: #555555;
+    --fg-login-menu: #ffffff;
+    --border-login-menu: #ffffff;
+    
+    --bd-login-menu: 2.5px;
+    --br-login-menu: 5px;
+    
+    
+    --bg-login-header: #3c3c3c;
+    --fg-login-header: #ffffff;
+    --border-login-header: #ffffff;
+    
+    --bd-login-header: 2.5px;
+    --br-login-header: 5px;
+    
+    
+    --bg-login-body: #3c3c3c;
+    --fg-login-body: #ffffff;
+    --border-login-body: #ffffff;
+    
+    --bd-login-body: 2.5px;
+    --br-login-body: 5px;
+    
+    
+    --bg-login-credentials: #ffffff;
+    --fg-login-credentials: #000000;
+    --border-login-credentials: #000000;
+    
+    --bd-login-credentials: 2.5px;
+    --br-login-credentials: 5px;
+    
+    
+    --bg-login-inp: linear-gradient(to top, #00000050, transparent);
+    --fg-login-inp: #000000;
+    --borderbottom-login-inp: #000000;
+    
+    --bd-login-inp: 2.5px;
+    
+    
+    --bg-login-btn: #004400;
+    --fg-login-btn: #9eff9e;
+    
+    --bg-login-act-btn: #007200;
+    --fg-login-act-btn: #c8ffc8;
+    
+    --border-login-btn: #00ff00;
+    
+    --br-login-btn: 5px;
+    --bd-login-btn: 2.5px;
+    
+    
+    --bg-popup: #5c5c5ca5;
+    --fg-popup: #ffffff;
+    --border-popup: #757575a5;
+    
+    --br-popup: 5px;
+    --bd-popup: 2.5px;
+    
+    
+    --bg-popup-header: #757575a5;
+    --fg-popup-header: #ffffff;
+    --borderbottom-popup-header: #ffffff;
+    
+    --br-popup-header: 5px;
+    --bd-popup-header: 2.5px;
+    
+    
+    --bg-popup-body: #ffffffa5;
+    --fg-popup-body: #000000;
+    --border-popup-body: #ffffff;
+    
+    --bd-popup-body: 2.5px;
+    
+    
+    --bg-popup-opt: #9a9a9a75;
+    --fg-popup-opt: #000000;
+    --bordertop-popup-opt: #ffffff;
+    
+    --br-popup-opt: 5px;
+    --bd-popup-opt: 2.5px;
+    
+    
+    --bg-popup-btn: #ffffff;
+    --fg-popup-btn: #000000;
+    --border-popup-btn: #000000;
+    
+    --br-popup-btn: 5px;
+    --bd-popup-btn: 2.5px;
+    
+    
+    --bg-popup-cancel: #ff000050;
+    --fg-popup-cancel: #ff9595;
+    --border-popup-cancel: #ff0000;
+    
+    --bd-popup-cancel: 2.5px;
+    
+    
+    --bg-popup-okay: #00ff0050;
+    --fg-popup-okay: #95ff95;
+    --border-popup-okay: #00ff00;
+    
+    --bd-popup-okay: 2.5px;
+}
