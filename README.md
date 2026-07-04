@@ -8,5 +8,16 @@ It was created at 20/06/2026, my goal is to make people have fun playing with my
 
 <hr>
 
-### Main menu
-<img src="previews/prev2.png" title="Main panel" width="850" />
+### Main menu<br>
+<img src="previews/prev2.png" title="Main panel" width="850" /><br>
+
+## Rules / Guides
+With this program / software, you may:
+- Modify it and release it to the public (as long as you give me credit)
+- Use it as to make content on YT, and
+- Educational purposes
+<br>
+
+But, you may not:
+- Use this for commercial purposes, and
+- Copying + modifying it and making it as your "creation"
