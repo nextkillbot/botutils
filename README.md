@@ -1,3 +1,3 @@
 # botutils
-Somewhat of a creation I made since I'm kinda bored<br>
-This software (probably not a software) is free to use, report any bugs if you'd encounter one<br>
+<code>botutils</code> is a fun program that can make you into a living deity. (not really lol)<br>
+It was created at 20/06/2026, my goal is to make people have fun playing with my creations / codes.
