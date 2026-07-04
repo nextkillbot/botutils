@@ -26,5 +26,5 @@ But, you may not:
 - Copying + modifying it and making it as your "creation"
 <br>
 
-## Report any bugs to me via "Issues"
+## Report any bugs to me via Issues
 Thank you, and have a blessed day :D
