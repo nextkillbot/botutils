@@ -3,5 +3,5 @@
 It was created at 20/06/2026, my goal is to make people have fun playing with my creations / codes.<br>
 <br>
 ## Preview
-The login screen
+The login screen<br>
 <img src="previews/prev1.png" title="A login screen" width="500" />
