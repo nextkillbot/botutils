@@ -4,4 +4,4 @@ It was created at 20/06/2026, my goal is to make people have fun playing with my
 <br>
 ## Preview
 The login screen<br>
-<img src="previews/prev1.png" title="A login screen" width="500" />
+<img src="previews/prev1.png" title="A login screen" width="1250" />
