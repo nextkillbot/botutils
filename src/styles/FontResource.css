@@ -1,0 +1,60 @@
+/*
+ CREDITS TO THEM FOR MAKING THE FONT FILES 
+ */
+
+@font-face {
+  font-family: VCR OSD Mono;
+  src: url(FontFiles/VCR_OSD_Mono.ttf);
+}
+@font-face {
+  font-family: ROG Regular;
+  src: url(FontFiles/ROG.ttf);
+}
+@font-face {
+  font-family: Perfect DOS;
+  src: url(FontFiles/Perfect_DOS_VGA.ttf);
+}
+@font-face {
+  font-family: Spy Agency;
+  src: url(FontFiles/SpyAgency.ttf);
+}
+@font-face {
+  font-family: Minecraft Regular;
+  src: url(FontFiles/MinecraftRegular.otf);
+}
+@font-face {
+  font-family: Minecraft Ten;
+  src: url(FontFiles/MinecraftTen.ttf);
+}
+@font-face {
+  font-family: Futura;
+  src: url(FontFiles/Futura.ttf);
+}
+@font-face {
+  font-family: Futura Cycrillic;
+  src: url(FontFiles/FuturaCycrillic.ttf);
+}
+@font-face {
+  font-family: Rollbox;
+  src: url(FontFiles/RollboxBlack.ttf); format("TTF");
+}
+@font-face {
+  font-family: Azonix;
+  src: url(FontFiles/Azonix.otf); format("OTF");
+}
+@font-face {
+  font-family: Arxenon;
+  src: url(FontFiles/Arxenon.otf); format("OTF");
+}
+@font-face {
+  font-family: OrbitronMedium;
+  src: url(FontFiles/OrbitronMedium.otf); format("OTF");
+}
+@font-face {
+  font-family: Modern DOS;
+  src: url(FontFiles/ModernDOS.ttf); format("TTF");
+}
+@font-face {
+  font-family: JetBrains Mono;
+  src: url(FontFiles/JetBrainsMono-Regular.ttf); format("TTF");
+}
