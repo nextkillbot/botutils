@@ -26,5 +26,5 @@ But, you may not:
 - Copying + modifying it and making it as your "creation"
 <br>
 
-## Report any bugs to me via Issues
+## Report any bugs to me via <a href="https://github.com/nextkillbot/botutils/issues" target="_blank">here</a>
 Thank you, and have a blessed day :D
